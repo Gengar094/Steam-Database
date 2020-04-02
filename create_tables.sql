@@ -95,7 +95,6 @@ create table purchase
 	player_id varchar(10),
 	app_id varchar(10),
 	pdate char(20),
-	payment_method varchar(10),
 	primary key (player_id, app_id),
 	foreign key (player_id) references player ON DELETE SET NULL,
 	foreign key (app_id) references develop_product ON DELETE SET NULL 

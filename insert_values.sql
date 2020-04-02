@@ -82,14 +82,14 @@ insert into trade values('400', '200', '1002', '2019-11-23');
 insert into trade values('500', '200', '1003', '2020-03-27');
 insert into trade values('100', '500', '1001', '2009-12-08');
 
-insert into purchase values('100', '000001', '2019-12-25', 'Visa');
-insert into purchase values('100', '000003', '2019-12-26', 'Visa');
-insert into purchase values('200', '000006', '2018-12-29', 'MasterCard');
-insert into purchase values('300', '000002', '2017-06-12', 'Paypal');
-insert into purchase values('300', '000005', '2018-01-01', 'Paypal');
-insert into purchase values('400', '000002', '2017-06-21', 'Visa');
-insert into purchase values('500', '000004', '2019-06-30', 'MasterCard');
-insert into purchase values('300', '000009', '2020-01-02', 'Gift Card');
+insert into purchase values('100', '000001', '2019-12-25');
+insert into purchase values('100', '000003', '2019-12-26');
+insert into purchase values('200', '000006', '2018-12-29');
+insert into purchase values('300', '000002', '2017-06-12');
+insert into purchase values('300', '000005', '2018-01-01');
+insert into purchase values('400', '000002', '2017-06-21');
+insert into purchase values('500', '000004', '2019-06-30');
+insert into purchase values('300', '000009', '2020-01-02');
 
 insert into game values('000001', 'Action');
 insert into game values('000004', 'Action');
