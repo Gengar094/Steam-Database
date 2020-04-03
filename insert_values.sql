@@ -28,10 +28,13 @@ insert into developer values('Red Hook Studios');
 insert into developer values('Studio MDHR');
 insert into developer values('CD PROJEKT RED');
 
+insert into develop_product values('000000', 'Valve', '1998-11-08', 'Half Life', 12, 'Half Life');
 insert into develop_product values('000001', 'Valve', '2004-11-16', 'Half Life 2', 20, 'Half Life 2');
 insert into develop_product values('000002', 'Team Cherry Sounds', '2017-02-24', 'Hollow Knight: Official Soundtrack', 11, 'Hollow Knight');
 insert into develop_product values('000003', 'Valve', '2005-01-13', 'Half Life 2: Lost Coast', 11, 'Half Life 2');
-insert into develop_product values('000004', 'SEGA', '2017-12-12', 'Yakuza 0', 30, 'Yakuza 0');
+insert into develop_product values('000004', 'SEGA', '2018-08-01', 'Yakuza 0', 30, 'Yakuza 0');
+insert into develop_product values('000014', 'SEGA', '2019-02-19', 'Yakuza Kiwami', 30, 'Yakuza Kiwami');
+insert into develop_product values('000024', 'SEGA', '2019-05-09', 'Yakuza Kiwami 2', 40, 'Yakuza Kiwami 2');
 insert into develop_product values('000005', 'Team Cherry', '2017-02-24', 'Hollow Knight', 30, 'Hollow Knight');
 insert into develop_product values('000006', 'Colossal Order Ltd.', '2015-03-10', 'Cities Skylines', 32, 'Cities Skylines');
 insert into develop_product values('000009', 'SEGA', '2019-05-21', 'Team Sonic Racing', 55, 'Team Sonic Racing');
@@ -92,8 +95,11 @@ insert into purchase values('500', '000004', '2019-06-30');
 insert into purchase values('300', '000009', '2020-01-02');
 insert into purchase values('300', '000041', '2020-04-02');
 
+insert into game values('000000', 'Action');
 insert into game values('000001', 'Action');
 insert into game values('000004', 'Action');
+insert into game values('000014', 'Action');
+insert into game values('000024', 'Action');
 insert into game values('000005', 'Platformer');
 insert into game values('000006', 'City Builder');
 insert into game values('000009', 'Racing');
