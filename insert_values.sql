@@ -90,6 +90,7 @@ insert into purchase values('300', '000005', '2018-01-01');
 insert into purchase values('400', '000002', '2017-06-21');
 insert into purchase values('500', '000004', '2019-06-30');
 insert into purchase values('300', '000009', '2020-01-02');
+insert into purchase values('300', '000041', '2020-04-02');
 
 insert into game values('000001', 'Action');
 insert into game values('000004', 'Action');
@@ -117,6 +118,7 @@ insert into has_achievement values('001', '000001');
 insert into has_achievement values('011', '000004');
 insert into has_achievement values('021', '000001');
 insert into has_achievement values('035', '000005');
+insert into has_achievement values('036', '000005');
 insert into has_achievement values('010', '000006');
 insert into has_achievement values('002', '000009');
 
@@ -127,8 +129,8 @@ insert into attain values('300', '035');
 insert into attain values('200', '010');
 insert into attain values('300', '002');
 
-insert into review_writereview values('900001', '2019-12-26', 1, '100', '000001');
-insert into review_writereview values('900002', '2019-12-27', 1, '100', '000003');
-insert into review_writereview values('900005', '2017-06-15', 0, '300', '000002');
-insert into review_writereview values('900007', '2018-01-04', 0, '300', '000005');
-insert into review_writereview values('900009', '2019-08-21', 1, '500', '000004');
+insert into review_writereview values(review_id_counter.nextval, '2019-12-26', 1, '100', '000001');
+insert into review_writereview values(review_id_counter.nextval, '2019-12-27', 1, '100', '000003');
+insert into review_writereview values(review_id_counter.nextval, '2017-06-15', 0, '300', '000002');
+insert into review_writereview values(review_id_counter.nextval, '2018-01-04', 0, '300', '000005');
+insert into review_writereview values(review_id_counter.nextval, '2019-08-21', 1, '500', '000004');
