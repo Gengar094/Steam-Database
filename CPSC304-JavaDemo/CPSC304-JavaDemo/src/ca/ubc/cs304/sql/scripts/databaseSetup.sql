@@ -1,4 +1,5 @@
 
+drop table branch;
 CREATE TABLE branch (
 	branch_id integer not null PRIMARY KEY,
 	branch_name varchar2(20) not null,
@@ -8,10 +9,28 @@ CREATE TABLE branch (
 );
 
 
-INSERT INTO branch VALUES (1, "ABC", "123 Charming Ave", "Vancouver", "6041234567");
-INSERT INTO branch VALUES (2, "DEF", "123 Coco Ave", "Vancouver", "6044567890");
+INSERT INTO branch VALUES (1, 'ABC', '123 Charming Ave', 'Vancouver', '6041234567');
+INSERT INTO branch VALUES (2, 'DEF', '123 Coco Ave', 'Vancouver', '6044567890');
 
-/*
+
+drop sequence review_id_counter;
+drop table in_group;
+drop table create_for_mod;
+drop table player_group;
+drop table review_writereview;
+drop table purchase;
+drop table game;
+drop table soundtrack;
+drop table attain;
+drop table trade;
+drop table has_achievement;
+drop table own_item;
+drop table type_tradability;
+drop table player;
+drop table country_city;
+drop table develop_product;
+drop table developer;
+
 create table country_city
 (
 	city varchar(20) primary key,
@@ -326,4 +345,3 @@ insert into review_writereview values(review_id_counter.nextval, '2017-06-15', 0
 insert into review_writereview values(review_id_counter.nextval, '2018-01-04', 0, '300', '000005');
 insert into review_writereview values(review_id_counter.nextval, '2019-08-21', 1, '500', '000004');
 
-*/
