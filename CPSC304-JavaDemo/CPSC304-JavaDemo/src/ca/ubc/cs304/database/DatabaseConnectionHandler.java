@@ -23,6 +23,7 @@ public class DatabaseConnectionHandler {
 	private static final String WARNING_TAG = "[WARNING]";
 	
 	private Connection connection = null;
+	private String playerID; //added
 	
 	public DatabaseConnectionHandler() {
 		try {
@@ -43,6 +44,158 @@ public class DatabaseConnectionHandler {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 		}
 	}
+
+
+
+	public void refundGame(String appId) {
+		try {
+			PreparedStatement ps = connection
+					.prepareStatement("DELETE FROM purchase WHERE player_id = ? AND app_id = ?");
+			ps.setString(1, this.playerID);
+			ps.setString(1, appId);
+
+			int rowCount = ps.executeUpdate();
+			if (rowCount == 0) {
+				System.out.println(WARNING_TAG + "You do not have Game " + appId + "!");
+			}
+
+			connection.commit();
+
+			ps.close();
+		} catch (SQLException e) {
+			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+			rollbackConnection();
+		}
+	}
+
+	public void buyGame(PurchaseModel model) {
+		try {
+			PreparedStatement ps = connection.prepareStatement("INSERT INTO purchase VALUES (?,?,?)");
+			ps.setString(1, model.getPlayer_id());
+			ps.setString(2, model.getApp_id());
+			ps.setString(3, java.time.LocalDate.now().toString());
+
+			ps.executeUpdate();
+			connection.commit();
+
+			ps.close();
+		} catch (SQLException e) {
+			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+			rollbackConnection();
+		}
+	}
+
+	public ResultSet listPurchasedGames() {
+		ResultSet rs = null;
+		try {
+			Statement stmt = connection.createStatement();
+			String query = "SELECT p.app_id, d.product_name, g.genre, d.dv_name, COUNT(a.player_id) AS Num_Ach_Unlcoked "
+					+ "FROM purchase p LEFT JOIN (attain a JOIN has_achievement h ON a.ach_id = h.ach_id) ON p.player_id = a.player_id AND p.app_id = h.app_id, develop_product d, game g "
+					+ "WHERE p.player_id = <player_id> AND p.app_id = d.app_id AND d.app_id = g.app_id GROUP BY (p.app_id, d.product_name, g.genre, d.dv_name) "
+					+ "ORDER BY d.product_name";
+			rs = stmt.executeQuery(query);
+
+			// while(rs.next()) {
+			// BranchModel model = new BranchModel(rs.getString("branch_addr"),
+			// rs.getString("branch_city"),
+			// rs.getInt("branch_id"),
+			// rs.getString("branch_name"),
+			// rs.getInt("branch_phone"));
+			// result.add(model);
+			// }
+
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+		}
+		return rs;
+	}
+
+	public void addSelfToGroup(InGroupModel model) {
+		try {
+			PreparedStatement ps1 = connection.prepareStatement("INSERT INTO in_group VALUES(?, ?)");
+			ps1.setString(1, model.getGname());
+			ps1.setString(2, this.playerID);
+
+			PreparedStatement ps2 = connection
+					.prepareStatement("UPDATE player_group SET num_mem = num_mem + 1 WHERE gname = ?");
+			ps2.setString(1, model.getGname());
+
+			ps1.executeUpdate();
+			int rowCount = ps2.executeUpdate();
+			if (rowCount == 0) {
+				System.out.println(WARNING_TAG + " Group " + model.getGname() + " does not exist!");
+			}
+
+			connection.commit();
+
+			ps1.close();
+			ps2.close();
+		} catch (SQLException e) {
+			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+			rollbackConnection();
+		}
+	}
+
+	public void removeSelfFromGroup(String gname) {
+		try {
+			PreparedStatement ps1 = connection.prepareStatement("DELETE FROM in_group WHERE gname = ? AND player_id = ?");
+			ps1.setString(1, gname);
+			ps1.setString(2, this.playerID);
+
+			PreparedStatement ps2 = connection
+					.prepareStatement("UPDATE player_group SET num_mem = num_mem - 1 WHERE gname = ?");
+			ps2.setString(1, gname);
+
+			ps1.executeUpdate();
+			int rowCount = ps2.executeUpdate();
+			if (rowCount == 0) {
+				System.out.println(WARNING_TAG + " Group " + gname + " does not exist!");
+			}
+
+			connection.commit();
+
+			ps1.close();
+			ps2.close();
+		} catch (SQLException e) {
+			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+			rollbackConnection();
+		}
+	}
+
+	public void giftItem(TradeModel model) {
+		try {
+			PreparedStatement ps1 = connection
+					.prepareStatement("UPDATE own_item SET player_id = ? WHERE item_id = ?");
+			ps1.setString(1, model.getReceiver_id());
+			ps1.setString(2, model.getItem_id());
+
+			PreparedStatement ps2 = connection.prepareStatement("INSERT INTO trade VALUES(?, ?, ?, ?)");
+			ps2.setString(1, model.getGiver_id());
+			ps2.setString(2, model.getReceiver_id());
+			ps2.setString(3, model.getItem_id());
+			ps2.setString(4, java.time.LocalDate.now().toString());
+
+			ps1.executeUpdate();
+			int rowCount = ps2.executeUpdate();
+			if (rowCount == 0) {
+				System.out.println(WARNING_TAG + " Item " + model.getItem_id() + " does not exist!");
+			}
+
+			connection.commit();
+
+			ps1.close();
+			ps2.close();
+		} catch (SQLException e) {
+			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+			rollbackConnection();
+		}
+	}
+
+
+
+
 
 	public void deleteBranch(int branchId) {
 		try {
@@ -103,7 +256,6 @@ public class DatabaseConnectionHandler {
 //    			// get column name and print it
 //    			System.out.printf("%-15s", rsmd.getColumnName(i + 1));
 //    		}
-			
 			while(rs.next()) {
 				BranchModel model = new BranchModel(rs.getString("branch_addr"),
 													rs.getString("branch_city"),
@@ -112,13 +264,11 @@ public class DatabaseConnectionHandler {
 													rs.getInt("branch_phone"));
 				result.add(model);
 			}
-
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-		}	
-		
+		}
 		return result.toArray(new BranchModel[result.size()]);
 	}
 	
@@ -169,8 +319,8 @@ public class DatabaseConnectionHandler {
 	
 	public void databaseSetup() {
 
-		dropBranchTableIfExists();
-		/*
+		//dropBranchTableIfExists();
+
 		try {
 			Statement stmt = connection.createStatement();
 			stmt.executeUpdate("CREATE TABLE branch (branch_id integer PRIMARY KEY, branch_name varchar2(20) not null, branch_addr varchar2(50), branch_city varchar2(20) not null, branch_phone integer)");
@@ -184,7 +334,7 @@ public class DatabaseConnectionHandler {
 		
 		BranchModel branch2 = new BranchModel("123 Coco Ave", "Vancouver", 2, "Second Branch", 1234568);
 		insertBranch(branch2);
-		*/
+
 	}
 	
 	private void dropBranchTableIfExists() {

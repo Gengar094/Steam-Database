@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import ca.ubc.cs304.delegates.TerminalTransactionsDelegate;
-import ca.ubc.cs304.model.BranchModel;
+import ca.ubc.cs304.model.*;
 
 /**
  * The class is only responsible for handling terminal text inputs. 
@@ -69,6 +69,7 @@ public class TerminalTransactions {
 			System.out.println("3. Update branch name");
 			System.out.println("4. Show branch");
 			System.out.println("5. Quit");
+			System.out.println("6. TestUpdateTemp");
 			System.out.print("Please choose one of the above 5 options: ");
 
 			choice = readInteger(false);
@@ -77,28 +78,65 @@ public class TerminalTransactions {
 
 			if (choice != INVALID_INPUT) {
 				switch (choice) {
-				case 1:  
-					handleInsertOption(); 
-					break;
-				case 2:  
-					handleDeleteOption(); 
-					break;
-				case 3: 
-					handleUpdateOption();
-					break;
-				case 4:  
-					delegate.showBranch(); 
-					break;
-				case 5:
-					handleQuitOption();
-					break;
-				default:
-					System.out.println(WARNING_TAG + " The number that you entered was not a valid option.");
-					break;
+					case 1:
+						handleInsertOption();
+						break;
+					case 2:
+						handleDeleteOption();
+						break;
+					case 3:
+						handleUpdateOption();
+						break;
+					case 4:
+						delegate.showBranch();
+						break;
+					case 5:
+						handleQuitOption();
+						break;
+					case 6:
+						handleGiftItem();
+						break;
+					default:
+						System.out.println(WARNING_TAG + " The number that you entered was not a valid option.");
+						break;
 				}
 			}
-		}		
+		}
 	}
+
+
+
+
+
+	private void handleGiftItem(){
+		String giverID = null;
+		while (giverID == null || giverID.length() <= 0) {
+			System.out.print("Please enter the Giver ID you wish to update: ");
+			giverID= readLine().trim();
+		}
+
+		String  receiverID = null;
+		while (receiverID == null || receiverID.length() <= 0) {
+			System.out.print("Please enter the Receiver ID you wish to update: ");
+			receiverID= readLine().trim();
+		}
+
+		String itemID = null;
+		while (itemID == null || itemID.length() <= 0) {
+			System.out.print("Please enter the Item ID you wish to update: ");
+			itemID = readLine().trim();
+		}
+
+		TradeModel model = new TradeModel(	giverID,
+				receiverID,
+				itemID,
+				java.time.LocalDate.now().toString());
+
+		delegate.giftItem(model);
+	}
+
+
+
 	
 	private void handleDeleteOption() {
 		int branchId = INVALID_INPUT;

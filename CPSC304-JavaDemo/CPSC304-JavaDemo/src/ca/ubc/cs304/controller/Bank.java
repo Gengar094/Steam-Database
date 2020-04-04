@@ -1,9 +1,11 @@
 package ca.ubc.cs304.controller;
 
+import java.sql.ResultSet;
+
 import ca.ubc.cs304.database.DatabaseConnectionHandler;
 import ca.ubc.cs304.delegates.LoginWindowDelegate;
 import ca.ubc.cs304.delegates.TerminalTransactionsDelegate;
-import ca.ubc.cs304.model.BranchModel;
+import ca.ubc.cs304.model.*;
 import ca.ubc.cs304.ui.LoginWindow;
 import ca.ubc.cs304.ui.TerminalTransactions;
 
@@ -76,6 +78,35 @@ public class Bank implements LoginWindowDelegate, TerminalTransactionsDelegate {
     public void updateBranch(int branchId, String name) {
     	dbHandler.updateBranch(branchId, name);
     }
+
+
+
+	public void buyGame(PurchaseModel model) {
+		dbHandler.buyGame(model);
+	}
+
+	public void refundGame(String appId) {
+		dbHandler.refundGame(appId);
+	}
+
+	public ResultSet listPurchasedGames() {
+		return dbHandler.listPurchasedGames();
+	}
+
+	public void addSelfToGroup(InGroupModel model) {
+		dbHandler.addSelfToGroup(model);
+	}
+
+	public void removeSelfFromGroup(String gname) {
+		dbHandler.removeSelfFromGroup(gname);
+	}
+
+	public void giftItem(TradeModel model) {
+		dbHandler.giftItem(model);
+	}
+
+
+
 
     /**
 	 * TermainalTransactionsDelegate Implementation
