@@ -152,9 +152,11 @@ create table attain
 
 grant select on attain to public;
 
+create sequence review_id_counter;
+
 create table review_writereview
 (
-	review_id varchar(10) primary key,
+	review_id int primary key,
 	rdate char(20),
 	recommendation number(1,0),
 	player_id varchar(10) not null,

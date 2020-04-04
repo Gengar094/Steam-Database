@@ -1,3 +1,4 @@
+drop sequence review_id_counter;
 drop table in_group;
 drop table create_for_mod;
 drop table player_group;
