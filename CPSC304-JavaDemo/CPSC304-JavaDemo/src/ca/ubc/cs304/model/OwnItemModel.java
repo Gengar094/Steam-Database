@@ -10,4 +10,8 @@ public class OwnItemModel {
         this.player_id = player_id;
         this.item_type = item_type;
     }
+
+    public String getItem_id(){return item_id;}
+    public String getPlayer_id(){return player_id;}
+    public String getItem_type(){return item_type;}
 }

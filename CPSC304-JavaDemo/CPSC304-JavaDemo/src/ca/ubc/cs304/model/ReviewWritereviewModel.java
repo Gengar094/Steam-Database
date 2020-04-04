@@ -15,4 +15,10 @@ public class ReviewWritereviewModel {
         this.player_id = player_id;
         this.app_id = app_id;
     }
+
+    public String getReview_id(){return getReview_id();}
+    public String getRdate(){return rdate;}
+    public boolean getRecommendation(){return recommendation;}
+    public String getPlayer_id(){return player_id;}
+    private String getApp_id(){return app_id;}
 }

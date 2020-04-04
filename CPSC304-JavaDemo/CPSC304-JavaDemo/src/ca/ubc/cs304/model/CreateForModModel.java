@@ -10,4 +10,8 @@ public class CreateForModModel {
         this.mod_id = mod_id;
         this.player_id = player_id;
     }
+
+    public String getApp_id(){ return app_id; }
+    public String getMod_id(){ return mod_id; }
+    public String getPlayer_id() { return player_id; }
 }

@@ -8,4 +8,7 @@ public class HasPurchaseModel {
         this.ach_id = ach_id;
         this.app_id = app_id;
     }
+
+    public String getAch_id(){return ach_id;}
+    public String getApp_id(){return app_id;}
 }

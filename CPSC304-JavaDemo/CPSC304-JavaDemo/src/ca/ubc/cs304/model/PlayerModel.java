@@ -12,4 +12,9 @@ public class PlayerModel {
         this.email = email;
         this.city = city;
     }
+
+    public int getPlayer_id(){return player_id;}
+    public String getPname(){return pname;}
+    public String getEmail(){return email;}
+    public String getCity(){return city;}
 }

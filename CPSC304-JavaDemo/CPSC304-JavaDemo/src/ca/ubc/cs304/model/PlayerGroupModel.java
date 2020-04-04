@@ -10,4 +10,7 @@ public class PlayerGroupModel {
         this.num_mem = num_mem;
         this.tag = tag;
     }
+    public String getGname(){return gname;}
+    public int getNum_mem(){return num_mem;}
+    public String getTag(){return tag;}
 }

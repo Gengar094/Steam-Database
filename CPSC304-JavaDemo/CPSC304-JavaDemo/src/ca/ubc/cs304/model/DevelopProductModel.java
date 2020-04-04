@@ -19,4 +19,11 @@ public class DevelopProductModel {
         this.price = price;
         this.base_game_name = base_game_name;
     }
+
+    public String getApp_id(){return app_id;}
+    public String getDv_name(){return dv_name;}
+    public String getDdate(){return ddate;}
+    public String getProduct_name(){return product_name;}
+    public int getPrice(){return price;}
+    public String getBase_game_name(){return base_game_name;}
 }

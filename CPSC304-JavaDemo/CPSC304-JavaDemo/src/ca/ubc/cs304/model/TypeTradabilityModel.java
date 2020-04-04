@@ -8,4 +8,7 @@ public class TypeTradabilityModel {
         this.item_type = item_type;
         this.tradability = tradability;
     }
+
+    public String getItem_type(){return item_type;}
+    public boolean getTadability(){return tradability;}
 }

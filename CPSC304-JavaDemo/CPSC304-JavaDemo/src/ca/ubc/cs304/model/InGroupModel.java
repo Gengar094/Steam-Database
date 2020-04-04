@@ -8,4 +8,7 @@ public class InGroupModel {
         this.gname = gname;
         this.player_id = player_id;
     }
+
+    public String getGname(){return gname;}
+    public String getPlayer_id(){return player_id;}
 }

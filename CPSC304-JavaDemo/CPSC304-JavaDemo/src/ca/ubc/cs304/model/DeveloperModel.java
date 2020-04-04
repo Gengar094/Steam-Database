@@ -6,4 +6,6 @@ public class DeveloperModel {
     public DeveloperModel(String dv_name){
         this.dv_name = dv_name;
     }
+
+    public String getDv_name(){ return dv_name; }
 }

@@ -8,4 +8,7 @@ public class SoundtrackModel {
         this.app_id = app_id;
         this.total_length = total_length;
     }
+
+    public String getApp_id(){return app_id;}
+    public int getTotal_length(){return total_length;}
 }

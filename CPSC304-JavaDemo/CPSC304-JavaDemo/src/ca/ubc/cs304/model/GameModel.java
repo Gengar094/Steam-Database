@@ -8,4 +8,7 @@ public class GameModel {
         this.app_id = app_id;
         this.genre = genre;
     }
+
+    public String getApp_id(){return app_id;}
+    public String getGenre(){return genre;}
 }

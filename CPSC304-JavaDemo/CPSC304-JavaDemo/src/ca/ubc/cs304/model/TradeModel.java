@@ -12,4 +12,9 @@ public class TradeModel {
         this.item_id = item_id;
         this.tdate = tdate;
     }
+
+    public String getGiver_id(){return giver_id;}
+    public String getReceiver_id(){return receiver_id;}
+    public String getItem_id(){return item_id;}
+    public String getTdate(){return tdate;}
 }

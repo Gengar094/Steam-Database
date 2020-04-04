@@ -10,4 +10,8 @@ public class PurchaseModel {
         this.app_id = app_id;
         this.pdate = pdate;
     }
+
+    public String getPlayer_id(){return player_id;}
+    public String getApp_id(){return app_id;}
+    public String getPdate(){return pdate;}
 }
