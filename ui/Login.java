@@ -49,7 +49,7 @@ public class Login extends JFrame {
         loginPanel.add(Box.createHorizontalStrut(15));
 
         userSelect.setSelectedIndex(3);
-        nameField.setText("ora_CWL@stu");
+        nameField.setText("ora_CWL");
         passField.setText("aSTUDENTNUM");
 
         outerPanel.add(loginPanel);

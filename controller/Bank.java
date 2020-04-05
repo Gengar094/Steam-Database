@@ -20,6 +20,9 @@ public class Bank {
 	public Bank() {
 		this.dbHandler = new DatabaseConnectionHandler();
 		this.loginWindow = new Login();
+	}
+
+	public void start() {
 		this.loginWindow.main();
 	}
 	
@@ -172,5 +175,6 @@ public class Bank {
 	 */
 	public static void main(String args[]) {
 		Bank bank = new Bank();
+		bank.start();
 	}
 }

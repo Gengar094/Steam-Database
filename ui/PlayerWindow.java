@@ -1,4 +1,7 @@
 package ui;
+import controller.Bank;
+import model.PurchaseModel;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -13,10 +16,14 @@ import javax.swing.table.DefaultTableModel;
 
 import java.awt.image.BufferedImage;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class PlayerWindow extends JFrame {
     public int playerID;
+    public Bank bank;
 
     public JPanel info; // player info
     public JPanel i;
@@ -66,7 +73,7 @@ public class PlayerWindow extends JFrame {
         this.info = new JPanel();
         this.i = new JPanel();
         this.i.setLayout(new BoxLayout(this.i, BoxLayout.X_AXIS));
-
+        this.bank = new Bank();
         try {
             this.icon = new JLabel();
             BufferedImage logo = chooseAvatar(playerID);
@@ -294,14 +301,22 @@ public class PlayerWindow extends JFrame {
     }
 
     private void buyNewApp() {
-        String id = JOptionPane.showInputDialog(null, "Please enter the app ID you want to purchase");
-        System.out.println(id); // should perform query, and perform insert statement
+        String appId = JOptionPane.showInputDialog(null, "Please enter the app ID you want to purchase");
+        if (appId != null) {
+            System.out.println(appId); // should perform query, and perform insert statement
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            Date date = new Date();
+            bank.buyGame(new PurchaseModel(Integer.toString(this.playerID), appId, dateFormat.format(date)));
+        }
     }
 
     private void refund() {
-        String id = JOptionPane.showInputDialog(null, "Please enter the app ID you want to refund");
-        if (id != null) {
-            System.out.println(id); // should perform query, see if it is owned / not found. Perform delete statement
+        String appId = JOptionPane.showInputDialog(null, "Please enter the app ID you want to refund");
+        if (appId != null) {
+            System.out.println(appId); // should perform query, see if it is owned / not found. Perform delete statement
+            // refundGame(this.playerID, appId);
+            bank.refundGame(Integer.toString(this.playerID), appId);
+            System.out.println("successful");
         }
     }
 
