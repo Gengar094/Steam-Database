@@ -89,6 +89,8 @@ public class Bank {
 		dbHandler.refundGame(playerId, appId);
 	}
 
+	public ResultSet searchGame(String keyword) { return dbHandler.searchGame(keyword);}
+
 	public ResultSet getPurchasedGamesInfo(String playerID) {
 		return dbHandler.getPurchasedGamesInfo(playerID);
 	}

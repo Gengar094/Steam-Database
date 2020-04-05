@@ -94,6 +94,32 @@ public class DatabaseConnectionHandler {
 		}
 	}
 
+	public ResultSet searchGame(String keyword) {
+		ResultSet rs = null;
+		try {
+			Statement stmt = connection.createStatement();
+			String query = "SELECT d.app_id, d.product_name, g.genre, d.price " +
+			"FROM develop_product d, game g " +
+			"WHERE d.app_id = g.app_id AND LOWER(d.product_name) LIKE '%" + keyword + "%' ORDER BY d.product_name";
+			rs = stmt.executeQuery(query);
+
+			// while(rs.next()) {
+			// BranchModel model = new BranchModel(rs.getString("branch_addr"),
+			// rs.getString("branch_city"),
+			// rs.getInt("branch_id"),
+			// rs.getString("branch_name"),
+			// rs.getInt("branch_phone"));
+			// result.add(model);
+			// }
+
+//			rs.close();
+//			stmt.close();
+		} catch (SQLException e) {
+			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+		}
+		return rs;
+	}
+
 	public ResultSet getPurchasedGamesInfo(String playerID) {
 		ResultSet rs = null;
 		try {
@@ -318,7 +344,7 @@ public class DatabaseConnectionHandler {
 		ResultSet rs = null;
 		try {
 			Statement stmt = connection.createStatement();
-			String query = "SELECT oi.item_id, oi.item_type FROM own_item oi, type_tradability tt WHERE oi.player_id = " + player_id + " AND oi.item_type = tt.item_type";
+			String query = "SELECT oi.item_id, oi.item_type FROM own_item oi, type_tradability tt WHERE oi.player_id = " + playerID + " AND oi.item_type = tt.item_type";
 			rs = stmt.executeQuery(query);
 
 			//rs.close();
