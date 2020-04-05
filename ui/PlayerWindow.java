@@ -102,6 +102,17 @@ public class PlayerWindow extends JFrame {
         String email = "email";
         String city = "city";
         String country = "country";
+        ResultSet set = bank.getPlayerInfo(Integer.toString(playerID));
+        try {
+            while (set.next()) {
+                pname = set.getString("pname");
+                email = set.getString("email");
+                city = set.getString("city");
+                country = set.getString("country");
+            }
+        } catch (SQLException e) {
+            System.out.println("should not happen here");
+        }
         // try {
         // ResultSet arr = performPlayerQuery(playerID); // assume to be array
         // while (arr.next()) {
@@ -117,7 +128,7 @@ public class PlayerWindow extends JFrame {
         this.pnameLabel = new JLabel(pname);
         this.idLabel = new JLabel(Integer.toString(playerID));
         this.emailLabel = new JLabel(email);
-        this.cityLabel = new JLabel("                   " + city);
+        this.cityLabel = new JLabel("                      " + city);
         this.countryLabel = new JLabel(country);
         this.modify = new JButton("modify");
         this.modify.addActionListener(new java.awt.event.ActionListener() {
@@ -234,9 +245,7 @@ public class PlayerWindow extends JFrame {
             while (rs.next()) {
                 Object[] objects = new Object[5];
                 for (int i = 0; i < 5; i++) {
-                    System.out.println("1");
                     objects[i] = rs.getObject(i+1);
-                    System.out.println("2");
                 }
                 model.addRow(objects);
             }
@@ -291,9 +300,7 @@ public class PlayerWindow extends JFrame {
             while (rsg.next()) {
                 Object[] objects = new Object[3];
                 for (int i = 0; i < 3; i++) {
-                    System.out.println("4");
                     objects[i] = rsg.getObject(i+1);
-                    System.out.println("5");
                 }
                 groupModel.addRow(objects);
             }
