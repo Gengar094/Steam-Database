@@ -4,9 +4,6 @@
     <list default="true" id="95e60ba7-f934-4edc-b4f9-5135b51c7948" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Bank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/DatabaseConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/DatabaseConnectionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/PlayerWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/PlayerWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +26,17 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@dbhost.students.cs.ubc.ca" type="feb32156:DbDataSourceImpl" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@dbhost.students.cs.ubc.ca" type="feb32156:DbDataSourceImpl" />
+        <item name="ORA_HARRYZYH: schema" type="3abd1b6a:OraImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@dbhost.students.cs.ubc.ca" type="feb32156:DbDataSourceImpl" />
+        <item name="ORA_HARRYZYH: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
     </expand>
     <select />
   </component>
@@ -49,9 +57,21 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/sql/databaseSetup.sql" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Application.Bank">
     <configuration name="Bank" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -173,6 +193,7 @@
       <workItem from="1586128776168" duration="284000" />
       <workItem from="1586129063753" duration="418000" />
       <workItem from="1586129542554" duration="64000" />
+      <workItem from="1586129609448" duration="612000" />
     </task>
     <servers />
   </component>
