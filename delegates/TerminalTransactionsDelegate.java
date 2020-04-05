@@ -32,6 +32,8 @@ public interface TerminalTransactionsDelegate {
 	public ResultSet readGameInfo();
 	public PlayerGroupModel[] getGroupInfo();
 	public ResultSet getPlayerInfo(String playerID);
+	public ResultSet getInventory(String playerID);
+	public ResultSet searchReview(String appID);
 	
 	public void terminalTransactionsFinished();
 }

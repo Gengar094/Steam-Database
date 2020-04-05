@@ -125,6 +125,10 @@ public class Bank {
 		return dbHandler.getInventory(playerID);
 	}
 
+	public ResultSet searchReview(String appID){
+    	return dbHandler.searchReview(appID);
+	}
+
     /**
 	 * TermainalTransactionsDelegate Implementation
 	 * 
