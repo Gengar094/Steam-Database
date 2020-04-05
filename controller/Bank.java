@@ -119,6 +119,10 @@ public class Bank {
 		return dbHandler.getPlayerInfo(playerID);
 	}
 
+	public ResultSet getInventory(String playerID) {
+		return dbHandler.getInventory(playerID);
+	}
+
     /**
 	 * TermainalTransactionsDelegate Implementation
 	 * 
