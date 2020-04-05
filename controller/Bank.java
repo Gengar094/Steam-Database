@@ -93,14 +93,6 @@ public class Bank {
 		return dbHandler.getPurchasedGamesInfo(playerID);
 	}
 
-	public void listPurchasedGames(){
-		// read from getPurchaseGamesInfo
-	}
-
-	public ResultSet getPurchasedGamesInfo (String playerID) {
-		return dbHandler.getPurchasedGamesInfo(playerID);
-	}
-
 	public void addSelfToGroup(InGroupModel model) throws SQLException{
 		dbHandler.addSelfToGroup(model);
 	}
@@ -121,6 +113,10 @@ public class Bank {
 
 	public void writeReview(ReviewWritereviewModel model) throws SQLException {
     	dbHandler.writeReview(model);
+	}
+
+	public ResultSet getPlayerInfo(String playerID){
+		return dbHandler.getPlayerInfo(playerID);
 	}
 
     /**
