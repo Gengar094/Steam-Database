@@ -64,6 +64,7 @@ public class DatabaseConnectionHandler {
 			int rowCount = ps.executeUpdate();
 			if (rowCount == 0) {
 				System.out.println(WARNING_TAG + "player" + playerID + " do not have Game " + appId + "!");
+				throw new IOException("No founded");
 			}
 
 			connection.commit();
@@ -72,8 +73,6 @@ public class DatabaseConnectionHandler {
 		} catch (SQLException e) {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 			rollbackConnection();
-			System.out.println("test here");
-			throw new IOException(e);
 		}
 	}
 

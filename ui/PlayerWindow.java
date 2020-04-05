@@ -310,6 +310,7 @@ public class PlayerWindow extends JFrame {
         if (appId != null) {
             System.out.println(appId); // should perform query, and perform insert statement
             bank.buyGame(new PurchaseModel(Integer.toString(this.playerID), appId, java.time.LocalDate.now().toString()));
+            JOptionPane.showMessageDialog(null, "successful");
         }
     }
 
@@ -320,6 +321,7 @@ public class PlayerWindow extends JFrame {
             // refundGame(this.playerID, appId);
             try {
                 bank.refundGame(Integer.toString(this.playerID), appId);
+                JOptionPane.showMessageDialog(null, "successful");
             } catch (IOException e) {
                 noFound("Refund");
             }

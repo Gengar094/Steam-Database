@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95e60ba7-f934-4edc-b4f9-5135b51c7948" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Bank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/DatabaseConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/DatabaseConnectionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/PlayerWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/PlayerWindow.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -166,6 +162,7 @@
       <workItem from="1586062280659" duration="5774000" />
       <workItem from="1586068434250" duration="4044000" />
       <workItem from="1586073135579" duration="10372000" />
+      <workItem from="1586084865211" duration="406000" />
     </task>
     <servers />
   </component>
