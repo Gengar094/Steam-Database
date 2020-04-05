@@ -134,8 +134,8 @@ public class DatabaseConnectionHandler {
 			 	rs.getString("tag"));
 			 }
 
-			rs.close();
-			stmt.close();
+//			rs.close();
+//			stmt.close();
 		} catch (SQLException e) {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 		}

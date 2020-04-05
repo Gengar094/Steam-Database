@@ -6,17 +6,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Bank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/DatabaseConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/DatabaseConnectionHandler.java" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/model/ReviewWritereviewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/ReviewWritereviewModel.java" afterDir="false" />
-=======
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/ui/InventoryWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/InventoryWindow.java" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/delegates/TerminalTransactionsDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/delegates/TerminalTransactionsDelegate.java" afterDir="false" />
->>>>>>> c74f6482ac31cd70be7307628f58b987b101e834
->>>>>>> dd19d057a5ff6d152e7ac33ff352c23ed286cb8c
       <change beforePath="$PROJECT_DIR$/ui/PlayerWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/PlayerWindow.java" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +48,18 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Application.Bank">
     <configuration name="Bank" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -140,6 +144,7 @@
       <workItem from="1586116585651" duration="61000" />
       <workItem from="1586116649272" duration="407000" />
       <workItem from="1586117060617" duration="502000" />
+      <workItem from="1586124696003" duration="493000" />
     </task>
     <servers />
   </component>

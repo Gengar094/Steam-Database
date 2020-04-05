@@ -97,10 +97,6 @@ public class Bank {
 		// read from getPurchaseGamesInfo
 	}
 
-	public ResultSet getPurchasedGamesInfo (String playerID) {
-		return dbHandler.getPurchasedGamesInfo(playerID);
-	}
-
 	public void addSelfToGroup(InGroupModel model) throws SQLException{
 		dbHandler.addSelfToGroup(model);
 	}

@@ -227,7 +227,6 @@ public class PlayerWindow extends JFrame {
         // set up table
         ResultSet rs = bank.getPurchasedGamesInfo(Integer.toString(playerID));
         String[] columnNames = {"GameID", "GameName", "Genre", "DeveloperName", "Achievement"};
-        Object[][] data = {null, null, null, null, null}; // should be done by a query --
         this.gameTable = new JTable();
         DefaultTableModel model = (DefaultTableModel) this.gameTable.getModel();
         model.setColumnIdentifiers(columnNames);
@@ -281,11 +280,26 @@ public class PlayerWindow extends JFrame {
         subGroupPanel.add(this.quit);
 
         // set up table
+        ResultSet rsg = bank.getAllGroupThePlayerHas(Integer.toString(playerID));
         String[] groupColumnNames = {"Group Name", "Member", "Tag"};
-        Object[][] groupData = {null, null, null}; // should be done by a query --
         this.groupTable = new JTable();
-        this.groupTable.setModel(new DefaultTableModel(null, groupColumnNames));
+        DefaultTableModel groupModel = (DefaultTableModel) this.groupTable.getModel();
+        groupModel.setColumnIdentifiers(groupColumnNames);
         // add table to pane
+        try {
+            while (rs.next()) {
+                Object[] objects = new Object[3];
+                for (int i = 0; i < 3; i++) {
+                    System.out.println("1");
+                    objects[i] = rsg.getObject(i+1);
+                    System.out.println("2");
+                }
+                groupModel.addRow(objects);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        this.groupTable.setModel(groupModel);
         this.groupPane = new JScrollPane(this.groupTable);
         this.groupTable.setFillsViewportHeight(true);
 
@@ -312,13 +326,7 @@ public class PlayerWindow extends JFrame {
         return null;
     }
 
-    private ResultSet getPurchasedGamesInfo() {
-        //try {
-        return bank.getPurchasedGamesInfo(Integer.toString(this.playerID));
-        //} catch () {
 
-        //}
-    }
 
     private ResultSet getAllGroupThePlayerHas() {
         //try {
