@@ -166,8 +166,7 @@ public class PlayerWindow extends JFrame {
         this.writeReview.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                WriteReviewWindow writeReviewWindow = new WriteReviewWindow();
-                writeReviewWindow.singleDialogInformation();
+                writeReview();
             }
         });
         this.writeReview.setMaximumSize(new Dimension(120, 40));
@@ -223,11 +222,24 @@ public class PlayerWindow extends JFrame {
         subPanel.add(this.searchGames);
 
         // set up table
-        String[] columnNames = {"GameID", "GameName", "Genre", "Achievement",
-        "DeveloperID"};
-        Object[][] data = {null, null, null, null, null}; // should be done by a query --
+        ResultSet rs = bank.getPurchasedGamesInfo(Integer.toString(playerID));
+        String[] columnNames = {"GameID", "GameName", "Genre", "DeveloperName", "Achievement"};
         this.gameTable = new JTable();
-        this.gameTable.setModel(new DefaultTableModel(null, columnNames));
+        DefaultTableModel model = (DefaultTableModel) this.gameTable.getModel();
+        model.setColumnIdentifiers(columnNames);
+        try {
+            while (rs.next()) {
+                Object[] objects = new Object[5];
+                for (int i = 0; i < 5; i++) {
+                    objects[i] = rs.getObject(i+1);
+                }
+                model.addRow(objects);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        this.gameTable.setModel(model);
+
         // add table to pane
         this.gamePane = new JScrollPane(this.gameTable);
         this.gameTable.setFillsViewportHeight(true);
@@ -263,11 +275,26 @@ public class PlayerWindow extends JFrame {
         subGroupPanel.add(this.quit);
 
         // set up table
+        ResultSet rsg = bank.getAllGroupThePlayerHas(Integer.toString(playerID));
         String[] groupColumnNames = {"Group Name", "Member", "Tag"};
-        Object[][] groupData = {null, null, null}; // should be done by a query --
         this.groupTable = new JTable();
-        this.groupTable.setModel(new DefaultTableModel(null, groupColumnNames));
+        DefaultTableModel groupModel = (DefaultTableModel) this.groupTable.getModel();
+        groupModel.setColumnIdentifiers(groupColumnNames);
         // add table to pane
+        System.out.println("fafaskf");
+        try {
+            while (rsg.next()) {
+                Object[] objects = new Object[3];
+                for (int i = 0; i < 3; i++) {
+                    objects[i] = rsg.getObject(i+1);
+                }
+                groupModel.addRow(objects);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        System.out.println("rjrqkrn");
+        this.groupTable.setModel(groupModel);
         this.groupPane = new JScrollPane(this.groupTable);
         this.groupTable.setFillsViewportHeight(true);
 
@@ -413,16 +440,23 @@ public class PlayerWindow extends JFrame {
         }
     }
 
-    private void writeReview() throws SQLException {
+    private void writeReview() {
         String app_ID = JOptionPane.showInputDialog(null, "Please enter the ID of game you want to review");
         if (app_ID != null) {
             System.out.println(app_ID);
             try {
                 String recommendation = JOptionPane.showInputDialog(null, "Enter 1 if you recommend the game and 0 if not");
-                bank.writeReview(new ReviewWritereviewModel("0", java.time.LocalDate.now().toString(), (recommendation == "1") ? true : false, Integer.toString(this.playerID), app_ID));
-                JOptionPane.showMessageDialog(null, "successful");
+                if (recommendation != null) {
+                    System.out.println(recommendation);
+                    bank.writeReview(new ReviewWritereviewModel("0", java.time.LocalDate.now().toString(), recommendation.equals("1"), Integer.toString(this.playerID), app_ID));
+                    JOptionPane.showMessageDialog(null, "successful");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Sorry, you cannot leave empty recommendation", "Not allowed!", JOptionPane.ERROR_MESSAGE);
+                }
             } catch (SQLException e) {
-                // TODO
+                if (e.getErrorCode() == 2291) {
+                    noFound("Buy Not Found");
+                }
             }
         }
     }
