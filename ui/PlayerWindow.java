@@ -1,7 +1,10 @@
 package ui;
 import controller.Bank;
 import database.DatabaseConnectionHandler;
+
+import model.*;
 import model.InGroupModel;
+import model.PlayerGroupModel;
 import model.PurchaseModel;
 
 import javax.imageio.ImageIO;
@@ -303,12 +306,20 @@ public class PlayerWindow extends JFrame {
         //}
     }
 
-    private Object[][] readCurrentGames() {
-        return null;
+    private ResultSet readCurrentGames() {
+        //try {
+        return bank.readGameInfo();
+        //} catch () {
+
+        //}
     }
 
-    private Object[][] readCurrentGroup() {
-        return null;
+    private PlayerGroupModel[] readCurrentGroup() {
+        //try {
+        return bank.getGroupInfo();
+        //} catch () {
+
+        //}
     }
 
     private void buyNewApp() {

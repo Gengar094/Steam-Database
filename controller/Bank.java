@@ -96,7 +96,7 @@ public class Bank {
 	*/
 
 	public void listPurchasedGames(){
-		//read from ResultSet
+		// read from getPurchaseGamesInfo
 	}
 
 	public void addSelfToGroup(InGroupModel model) throws SQLException{
@@ -113,8 +113,9 @@ public class Bank {
 		dbHandler.giftItem(model);
 	}
 
+	public ResultSet readGameInfo(){ return dbHandler.readGameInfo();}
 
-
+	public PlayerGroupModel[] getGroupInfo(){ return dbHandler.getGroupInfo();}
 
     /**
 	 * TermainalTransactionsDelegate Implementation
