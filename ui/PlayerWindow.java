@@ -286,19 +286,21 @@ public class PlayerWindow extends JFrame {
         DefaultTableModel groupModel = (DefaultTableModel) this.groupTable.getModel();
         groupModel.setColumnIdentifiers(groupColumnNames);
         // add table to pane
+        System.out.println("fafaskf");
         try {
-            while (rs.next()) {
+            while (rsg.next()) {
                 Object[] objects = new Object[3];
                 for (int i = 0; i < 3; i++) {
-                    System.out.println("1");
+                    System.out.println("4");
                     objects[i] = rsg.getObject(i+1);
-                    System.out.println("2");
+                    System.out.println("5");
                 }
                 groupModel.addRow(objects);
             }
         } catch (SQLException e) {
             System.out.println(e);
         }
+        System.out.println("rjrqkrn");
         this.groupTable.setModel(groupModel);
         this.groupPane = new JScrollPane(this.groupTable);
         this.groupTable.setFillsViewportHeight(true);

@@ -31,6 +31,7 @@ public interface TerminalTransactionsDelegate {
 	public void giftItem(TradeModel model);
 	public ResultSet readGameInfo();
 	public PlayerGroupModel[] getGroupInfo();
+	public ResultSet getPlayerInfo(String playerID);
 	
 	public void terminalTransactionsFinished();
 }

@@ -113,8 +113,8 @@ public class DatabaseConnectionHandler {
 			// result.add(model);
 			// }
 
-			// rs.close();
-			// stmt.close();
+//			rs.close();
+//			stmt.close();
 		} catch (SQLException e) {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 		}
@@ -128,11 +128,11 @@ public class DatabaseConnectionHandler {
 			String query = "SELECT pg.gname, pg.num_mem, pg.tag FROM player_group pg, in_group ig WHERE pg.gname = ig.gname AND ig.player_id = " + playerID + " ORDER BY pg.gname";
 			rs = stmt.executeQuery(query);
 
-			 while(rs.next()) {
-			 	PlayerGroupModel model = new PlayerGroupModel(rs.getString("gname"),
-			 	rs.getInt("num_mem"),
-			 	rs.getString("tag"));
-			 }
+//			 while(rs.next()) {
+//			 	PlayerGroupModel model = new PlayerGroupModel(rs.getString("gname"),
+//			 	rs.getInt("num_mem"),
+//			 	rs.getString("tag"));
+//			 }
 
 //			rs.close();
 //			stmt.close();
@@ -296,6 +296,23 @@ public class DatabaseConnectionHandler {
 		return result.toArray(new PlayerGroupModel[result.size()]);
 	}
 
+	public ResultSet getPlayerInfo(String playerID){
+		ResultSet rs = null;
+		try {
+			Statement stmt = connection.createStatement();
+			String query = "SELECT p.player_id, p.pname, p.email, p.city, cc.country "
+					+ "FROM player p, country_city cc "
+					+ "WHERE p.city = cc.city AND p.player_id = " + playerID
+					+ "ORDER BY p.player_id";
+			rs = stmt.executeQuery(query);
+
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+		}
+		return rs;
+	}
 
 
 	public void deleteBranch(int branchId) {
