@@ -46,17 +46,17 @@ public class DatabaseConnectionHandler {
 	}
 
 
-
-	public void refundGame(String appId) {
+	// originally only String appId
+	public void refundGame(String playerID, String appId) {
 		try {
 			PreparedStatement ps = connection
 					.prepareStatement("DELETE FROM purchase WHERE player_id = ? AND app_id = ?");
-			ps.setString(1, this.playerID);
-			ps.setString(1, appId);
+			ps.setString(1, playerID);
+			ps.setString(2, appId);
 
 			int rowCount = ps.executeUpdate();
 			if (rowCount == 0) {
-				System.out.println(WARNING_TAG + "You do not have Game " + appId + "!");
+				System.out.println(WARNING_TAG + "player" + playerID + " do not have Game " + appId + "!");
 			}
 
 			connection.commit();
@@ -85,7 +85,7 @@ public class DatabaseConnectionHandler {
 		}
 	}
 
-	public ResultSet listPurchasedGames() {
+	public ResultSet getPurchasedGamesInfo() {
 		ResultSet rs = null;
 		try {
 			Statement stmt = connection.createStatement();
@@ -116,7 +116,7 @@ public class DatabaseConnectionHandler {
 		try {
 			PreparedStatement ps1 = connection.prepareStatement("INSERT INTO in_group VALUES(?, ?)");
 			ps1.setString(1, model.getGname());
-			ps1.setString(2, this.playerID);
+			ps1.setString(2, model.getPlayer_id());
 
 			PreparedStatement ps2 = connection
 					.prepareStatement("UPDATE player_group SET num_mem = num_mem + 1 WHERE gname = ?");
@@ -125,7 +125,7 @@ public class DatabaseConnectionHandler {
 			ps1.executeUpdate();
 			int rowCount = ps2.executeUpdate();
 			if (rowCount == 0) {
-				System.out.println(WARNING_TAG + " Group " + model.getGname() + " does not exist!");
+				System.out.println(WARNING_TAG + "Group" + model.getGname() + " does not exist! ");
 			}
 
 			connection.commit();
@@ -138,11 +138,12 @@ public class DatabaseConnectionHandler {
 		}
 	}
 
-	public void removeSelfFromGroup(String gname) {
+	// originally only String gname
+	public void removeSelfFromGroup(String gname, String playerID) {
 		try {
 			PreparedStatement ps1 = connection.prepareStatement("DELETE FROM in_group WHERE gname = ? AND player_id = ?");
 			ps1.setString(1, gname);
-			ps1.setString(2, this.playerID);
+			ps1.setString(2, playerID);
 
 			PreparedStatement ps2 = connection
 					.prepareStatement("UPDATE player_group SET num_mem = num_mem - 1 WHERE gname = ?");
@@ -151,7 +152,7 @@ public class DatabaseConnectionHandler {
 			ps1.executeUpdate();
 			int rowCount = ps2.executeUpdate();
 			if (rowCount == 0) {
-				System.out.println(WARNING_TAG + " Group " + gname + " does not exist!");
+				System.out.println(WARNING_TAG + "Player" + playerID + " does not exist in Group " + gname);
 			}
 
 			connection.commit();

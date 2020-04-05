@@ -3,6 +3,7 @@ package ca.ubc.cs304.ui;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.ResultSet;
 
 import ca.ubc.cs304.delegates.TerminalTransactionsDelegate;
 import ca.ubc.cs304.model.*;
@@ -69,8 +70,13 @@ public class TerminalTransactions {
 			System.out.println("3. Update branch name");
 			System.out.println("4. Show branch");
 			System.out.println("5. Quit");
-			System.out.println("6. TestUpdateTemp");
-			System.out.print("Please choose one of the above 5 options: ");
+			System.out.println("6. Gift item");
+			System.out.println("7. Refund game");
+			System.out.println("8. Buy game");
+			System.out.println("9. Add self to group");
+			System.out.println("10. Remove self from group");
+			System.out.println("11. Show Purchased Games (Not working now)");
+			System.out.print("Please choose one of the above 11 options: ");
 
 			choice = readInteger(false);
 
@@ -78,47 +84,140 @@ public class TerminalTransactions {
 
 			if (choice != INVALID_INPUT) {
 				switch (choice) {
-					case 1:
+					case 1: {
 						handleInsertOption();
 						break;
-					case 2:
+					}
+					case 2: {
 						handleDeleteOption();
 						break;
-					case 3:
+					}
+					case 3: {
 						handleUpdateOption();
 						break;
-					case 4:
+					}
+					case 4: {
 						delegate.showBranch();
 						break;
-					case 5:
+					}
+					case 5: {
 						handleQuitOption();
 						break;
-					case 6:
+					}
+					case 6: {
 						handleGiftItem();
 						break;
-					default:
+					}
+					case 7: {
+						handleRefundGame();
+						break;
+					}
+					case 8: {
+						handleBuyGame();
+						break;
+					}
+					case 9: {
+						handleAddSelfToGroup();
+						break;
+					}
+					case 10: {
+						handleRemoveSelfFromGroup();
+						break;
+					}
+					case 11: {
+						//delegate.
+						break;
+					}
+					default: {
 						System.out.println(WARNING_TAG + " The number that you entered was not a valid option.");
 						break;
+					}
 				}
 			}
 		}
 	}
 
 
+	private void handleRefundGame(){
+		String playerID = null;
+		while (playerID == null || playerID.length() <= 0) {
+			System.out.print("Please enter the Player ID you wish to refund from: ");
+			playerID= readLine().trim();
+		}
 
+		String appID = null;
+		while (appID == null || appID.length() <= 0) {
+			System.out.print("Please enter the App ID you wish to refund: ");
+			appID= readLine().trim();
+		}
 
+		delegate.refundGame(playerID, appID);
+	}
+
+	private void handleBuyGame(){
+		String playerID = null;
+		while (playerID == null || playerID.length() <= 0) {
+			System.out.print("Please enter the Player ID you wish to buy for: ");
+			playerID= readLine().trim();
+		}
+
+		String appID = null;
+		while (appID == null || appID.length() <= 0) {
+			System.out.print("Please enter the App ID you wish to buy: ");
+			appID= readLine().trim();
+		}
+
+		PurchaseModel model = new PurchaseModel( playerID,
+				appID,
+				java.time.LocalDate.now().toString());
+
+		delegate.buyGame(model);
+	}
+
+	private void handleAddSelfToGroup(){
+		String gname = null;
+		while (gname == null || gname.length() <= 0) {
+			System.out.print("Please enter the Group Name you wish to update: ");
+			gname = readLine().trim();
+		}
+
+		String  playerID = null;
+		while (playerID == null || playerID.length() <= 0) {
+			System.out.print("Please enter the Player ID you wish to update: ");
+			playerID = readLine().trim();
+		}
+
+		InGroupModel model = new InGroupModel(gname, playerID);
+		delegate.addSelfToGroup(model);
+	}
+
+	private void handleRemoveSelfFromGroup(){
+		String gname = null;
+		while (gname == null || gname.length() <= 0) {
+			System.out.print("Please enter the Group Name you wish to delete: ");
+			gname = readLine().trim();
+		}
+
+		String  playerID = null;
+		while (playerID == null || playerID.length() <= 0) {
+			System.out.print("Please enter the Player ID you wish to update: ");
+			playerID = readLine().trim();
+		}
+
+		delegate.removeSelfFromGroup(gname, playerID);
+	}
 
 	private void handleGiftItem(){
 		String giverID = null;
 		while (giverID == null || giverID.length() <= 0) {
 			System.out.print("Please enter the Giver ID you wish to update: ");
-			giverID= readLine().trim();
+			giverID = readLine().trim();
 		}
 
 		String  receiverID = null;
 		while (receiverID == null || receiverID.length() <= 0) {
 			System.out.print("Please enter the Receiver ID you wish to update: ");
-			receiverID= readLine().trim();
+			receiverID = readLine().trim();
 		}
 
 		String itemID = null;
@@ -135,35 +234,8 @@ public class TerminalTransactions {
 		delegate.giftItem(model);
 	}
 
-	private void handleRefundGame(){
-		String appID = null;
-		while (appID == null || appID.length() <= 0) {
-			System.out.print("Please enter the App ID you wish to refund: ");
-			appID= readLine().trim();
-		}
 
-		delegate.refundGame(appID);
-	}
 
-	private void handleBuyGame(){
-		String playerID = null;
-		while (playerID == null || playerID.length() <= 0) {
-			System.out.print("Please enter the Player ID you wish to buy for: ");
-			playerID= readLine().trim();
-		}
-
-		String appID = null;
-		while (appID == null || appID.length() <= 0) {
-			System.out.print("Please enter the App ID you wish to buy: ");
-			appID= readLine().trim();
-		}
-
-		TradeModel model = new PurchaseModel( playerID,
-				appID,
-				java.time.LocalDate.now().toString());
-
-		delegate.buyGame(model);
-	}
 	
 	private void handleDeleteOption() {
 		int branchId = INVALID_INPUT;

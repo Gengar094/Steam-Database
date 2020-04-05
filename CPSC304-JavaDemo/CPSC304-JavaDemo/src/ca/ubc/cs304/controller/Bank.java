@@ -1,6 +1,7 @@
 package ca.ubc.cs304.controller;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import ca.ubc.cs304.database.DatabaseConnectionHandler;
 import ca.ubc.cs304.delegates.LoginWindowDelegate;
@@ -81,24 +82,31 @@ public class Bank implements LoginWindowDelegate, TerminalTransactionsDelegate {
 
 
 
+
 	public void buyGame(PurchaseModel model) {
 		dbHandler.buyGame(model);
 	}
 
-	public void refundGame(String appId) {
-		dbHandler.refundGame(appId);
+	public void refundGame(String playerId, String appId) {
+		dbHandler.refundGame(playerId, appId);
 	}
 
+	/*
 	public ResultSet listPurchasedGames() {
 		return dbHandler.listPurchasedGames();
+	}
+	*/
+
+	public void listPurchasedGames(){
+		//read from ResultSet
 	}
 
 	public void addSelfToGroup(InGroupModel model) {
 		dbHandler.addSelfToGroup(model);
 	}
 
-	public void removeSelfFromGroup(String gname) {
-		dbHandler.removeSelfFromGroup(gname);
+	public void removeSelfFromGroup(String gname, String playerId) {
+		dbHandler.removeSelfFromGroup(gname, playerId);
 	}
 
 	public void giftItem(TradeModel model) {
