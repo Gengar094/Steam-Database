@@ -93,13 +93,13 @@ public class DatabaseConnectionHandler {
 		}
 	}
 
-	public ResultSet getPurchasedGamesInfo() {
+	public ResultSet getPurchasedGamesInfo(String playerID) {
 		ResultSet rs = null;
 		try {
 			Statement stmt = connection.createStatement();
 			String query = "SELECT p.app_id, d.product_name, g.genre, d.dv_name, COUNT(a.player_id) AS Num_Ach_Unlcoked "
 					+ "FROM purchase p LEFT JOIN (attain a JOIN has_achievement h ON a.ach_id = h.ach_id) ON p.player_id = a.player_id AND p.app_id = h.app_id, develop_product d, game g "
-					+ "WHERE p.player_id = <player_id> AND p.app_id = d.app_id AND d.app_id = g.app_id GROUP BY (p.app_id, d.product_name, g.genre, d.dv_name) "
+					+ "WHERE p.player_id = " + playerID + " AND p.app_id = d.app_id AND d.app_id = g.app_id GROUP BY (p.app_id, d.product_name, g.genre, d.dv_name) "
 					+ "ORDER BY d.product_name";
 			rs = stmt.executeQuery(query);
 
@@ -111,6 +111,27 @@ public class DatabaseConnectionHandler {
 			// rs.getInt("branch_phone"));
 			// result.add(model);
 			// }
+
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+		}
+		return rs;
+	}
+
+	public ResultSet getAllGroupThePlayerHas(String playerID) {
+		ResultSet rs = null;
+		try {
+			Statement stmt = connection.createStatement();
+			String query = "SELECT pg.gname, pg.num_mem, pg.tag FROM player_group pg, in_group ig WHERE pg.gname = ig.gname AND ig.player_id = " + playerID + " ORDER BY pg.gname";
+			rs = stmt.executeQuery(query);
+
+			 while(rs.next()) {
+			 	PlayerGroupModel model = new PlayerGroupModel(rs.getString("gname"),
+			 	rs.getInt("num_mem"),
+			 	rs.getString("tag"));
+			 }
 
 			rs.close();
 			stmt.close();
