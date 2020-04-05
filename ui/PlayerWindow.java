@@ -326,6 +326,10 @@ public class PlayerWindow extends JFrame {
         //}
     }
 
+    private ResultSet getPlayerInfo(){
+        return bank.getPlayerInfo(Integer.toString(this.playerID));
+    }
+
     private void buyNewApp() {
         String appId = JOptionPane.showInputDialog(null, "Please enter the app ID you want to purchase");
         if (appId != null) {
