@@ -1,5 +1,6 @@
 package database;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -22,15 +23,21 @@ public class DatabaseConnectionHandler {
 	private static final String EXCEPTION_TAG = "[EXCEPTION]";
 	private static final String WARNING_TAG = "[WARNING]";
 	
-	private Connection connection = null;
+	private Connection connection = null; // we need to initialize it , but it is abstract so... ora_yzh99 a19862648
 	private String playerID; //added
+    private String username;
+    private String password;
 	
-	public DatabaseConnectionHandler() {
+	public DatabaseConnectionHandler(String username, String password) {
+		this.username = username;
+		this.password = password;
 		try {
 			// Load the Oracle JDBC driver
-			// Note that the path could change for new drivers
+			// Note that the path could change for new driver;
+            // this.connection.setAutoCommit(false);
 			DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
 		} catch (SQLException e) {
+			System.out.println("hads");
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 		}
 	}
@@ -47,7 +54,7 @@ public class DatabaseConnectionHandler {
 
 
 	// originally only String appId
-	public void refundGame(String playerID, String appId) {
+	public void refundGame(String playerID, String appId) throws IOException{
 		try {
 			PreparedStatement ps = connection
 					.prepareStatement("DELETE FROM purchase WHERE player_id = ? AND app_id = ?");
@@ -65,6 +72,8 @@ public class DatabaseConnectionHandler {
 		} catch (SQLException e) {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 			rollbackConnection();
+			System.out.println("test here");
+			throw new IOException(e);
 		}
 	}
 
@@ -299,8 +308,8 @@ public class DatabaseConnectionHandler {
 				connection.close();
 			}
 	
-			connection = DriverManager.getConnection(ORACLE_URL, username, password);
-			connection.setAutoCommit(false);
+			this.connection = DriverManager.getConnection(ORACLE_URL, username, password);
+			this.connection.setAutoCommit(false);
 	
 			System.out.println("\nConnected to Oracle!");
 			return true;

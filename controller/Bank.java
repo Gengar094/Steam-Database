@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -16,16 +17,13 @@ import ui.TerminalTransactions;
 public class Bank {
 	private DatabaseConnectionHandler dbHandler = null;
 	private Login loginWindow = null;
+	private String username;
+	private String password;
 
-	public Bank() {
-		this.dbHandler = new DatabaseConnectionHandler();
-		this.loginWindow = new Login();
+	public Bank(DatabaseConnectionHandler dch) {
+		this.dbHandler = dch;
 	}
 
-	public void start() {
-		this.loginWindow.main();
-	}
-	
 //	/**
 //	 * LoginWindowDelegate Implementation
 //	 *
@@ -87,7 +85,7 @@ public class Bank {
 		dbHandler.buyGame(model);
 	}
 
-	public void refundGame(String playerId, String appId) {
+	public void refundGame(String playerId, String appId) throws IOException {
 		dbHandler.refundGame(playerId, appId);
 	}
 
@@ -174,7 +172,7 @@ public class Bank {
 	 * Main method called at launch time
 	 */
 	public static void main(String args[]) {
-		Bank bank = new Bank();
-		bank.start();
+		Login log = new Login();
+		log.main();
 	}
 }

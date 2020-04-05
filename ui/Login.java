@@ -64,10 +64,13 @@ public class Login extends JFrame {
         }
         if (result == JOptionPane.OK_OPTION) {
             String val = userSelect.getSelectedItem().toString();
-            DatabaseConnectionHandler dch = new DatabaseConnectionHandler();
+            System.out.println(nameField.getText());
+            System.out.println(passField.getText());
+            DatabaseConnectionHandler dch = new DatabaseConnectionHandler(nameField.getText(), passField.getText());
             boolean success = dch.login(nameField.getText(), passField.getText());
             if (success) {
-                PlayerWindow window = new PlayerWindow(toVal(val)); // need to check connection, see below
+                System.out.println("success");
+                PlayerWindow window = new PlayerWindow(toVal(val), nameField.getText(), passField.getText(), dch); // need to check connection, see below
             } else {
                  JOptionPane.showMessageDialog(null,  "\n\nPlease check your " +
                  "login credentials, and ensure you have created an ssh tunnel created \n" +
