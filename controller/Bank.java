@@ -99,11 +99,11 @@ public class Bank {
 		//read from ResultSet
 	}
 
-	public void addSelfToGroup(InGroupModel model) {
+	public void addSelfToGroup(InGroupModel model) throws SQLException{
 		dbHandler.addSelfToGroup(model);
 	}
 
-	public void removeSelfFromGroup(String gname, String playerId) {
+	public void removeSelfFromGroup(String gname, String playerId) throws Exception {
 		dbHandler.removeSelfFromGroup(gname, playerId);
 	}
 

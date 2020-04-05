@@ -123,7 +123,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@8ed64e1c" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@af232aaa" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@af232aaa" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@c404618" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -155,6 +160,14 @@
       <workItem from="1586107949318" duration="402000" />
       <workItem from="1586108355090" duration="295000" />
       <workItem from="1586108658188" duration="293000" />
+      <workItem from="1586109048629" duration="858000" />
+      <workItem from="1586109912680" duration="260000" />
+      <workItem from="1586110176670" duration="171000" />
+      <workItem from="1586110350709" duration="321000" />
+      <workItem from="1586110676004" duration="32000" />
+      <workItem from="1586110711103" duration="997000" />
+      <workItem from="1586111725400" duration="414000" />
+      <workItem from="1586112143195" duration="189000" />
     </task>
     <servers />
   </component>

@@ -343,8 +343,16 @@ public class PlayerWindow extends JFrame {
         String gname = JOptionPane.showInputDialog(null, "Please enter the name of group you want to join");
         if (gname != null) {
             System.out.println(gname);
-            bank.addSelfToGroup(new InGroupModel(gname, Integer.toString(this.playerID)));
-            JOptionPane.showMessageDialog(null, "successful");
+            try{
+                bank.addSelfToGroup(new InGroupModel(gname, Integer.toString(this.playerID)));
+                JOptionPane.showMessageDialog(null, "successful");
+            } catch (SQLException e1) {
+                if (e1.getErrorCode() == 1) {
+                    noFound("Already Join");
+                } else if (e1.getErrorCode() == 2291) {
+                    noFound("Group Name");
+                }
+            }
         }
     }
 
@@ -352,8 +360,20 @@ public class PlayerWindow extends JFrame {
         String gname = JOptionPane.showInputDialog(null, "Please enter the name of group you want to quit");
         if (gname != null) {
             System.out.println(gname);
-            bank.removeSelfFromGroup(gname, Integer.toString(this.playerID));
-            JOptionPane.showMessageDialog(null, "successful");
+            try {
+                bank.removeSelfFromGroup(gname, Integer.toString(this.playerID));
+                JOptionPane.showMessageDialog(null, "successful");
+            } catch (SQLException e2) {
+                if (e2.getErrorCode() == 1) {
+                    noFound("Already quit");
+                } else if (e2.getErrorCode() == 2291) {
+                    noFound("Group Name");
+                }
+            } catch (IOException e1) {
+                noFound("Group Name");
+            } catch (Exception e) {
+                noFound("Already quit");
+            }
         }
     }
 

@@ -142,7 +142,7 @@ public class DatabaseConnectionHandler {
 		return rs;
 	}
 
-	public void addSelfToGroup(InGroupModel model) {
+	public void addSelfToGroup(InGroupModel model) throws SQLException{
 		try {
 			PreparedStatement ps1 = connection.prepareStatement("INSERT INTO in_group VALUES(?, ?)");
 			ps1.setString(1, model.getGname());
@@ -165,11 +165,12 @@ public class DatabaseConnectionHandler {
 		} catch (SQLException e) {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 			rollbackConnection();
+			throw e;
 		}
 	}
 
 	// originally only String gname
-	public void removeSelfFromGroup(String gname, String playerID) {
+	public void removeSelfFromGroup(String gname, String playerID) throws Exception{
 		try {
 			PreparedStatement ps1 = connection.prepareStatement("DELETE FROM in_group WHERE gname = ? AND player_id = ?");
 			ps1.setString(1, gname);
@@ -179,10 +180,14 @@ public class DatabaseConnectionHandler {
 					.prepareStatement("UPDATE player_group SET num_mem = num_mem - 1 WHERE gname = ?");
 			ps2.setString(1, gname);
 
-			ps1.executeUpdate();
+			int row = ps1.executeUpdate();
 			int rowCount = ps2.executeUpdate();
 			if (rowCount == 0) {
 				System.out.println(WARNING_TAG + "Player" + playerID + " does not exist in Group " + gname);
+				throw new IOException();
+			}
+			if (row == 0) {
+				throw new RuntimeException();
 			}
 
 			connection.commit();
@@ -192,6 +197,7 @@ public class DatabaseConnectionHandler {
 		} catch (SQLException e) {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 			rollbackConnection();
+			throw e;
 		}
 	}
 
