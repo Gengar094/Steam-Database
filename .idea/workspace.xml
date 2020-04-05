@@ -2,76 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95e60ba7-f934-4edc-b4f9-5135b51c7948" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/ojdbc8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/ojdbc81.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Steam-Database1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Steam-Database.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Steam-Database.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/CPSC304-JavaDemo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/controller/Bank.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/database/DatabaseConnectionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/delegates/LoginWindowDelegate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/delegates/TerminalTransactionsDelegate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/model/AttainModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/model/BranchModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/model/CountryCityModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/model/CreateForModModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/model/DevelopProductModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/model/DeveloperModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/model/GameModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/model/HasPurchaseModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/model/InGroupModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/model/OwnItemModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/model/PlayerGroupModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/model/PlayerModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/model/PurchaseModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/model/ReviewWritereviewModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/model/SoundtrackModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/model/TradeModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/model/TypeTradabilityModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/sql/scripts/databaseSetup.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/ui/LoginWindow$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/ui/LoginWindow.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/bin/ca/ubc/cs304/ui/TerminalTransactions.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/out/artifacts/CPSC304_JavaDemo_jar/CPSC304-JavaDemo.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/resources/ojdbc8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/controller/Bank.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/database/DatabaseConnectionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/delegates/LoginWindowDelegate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/delegates/TerminalTransactionsDelegate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/model/AttainModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/model/BranchModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/model/CountryCityModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/model/CreateForModModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/model/DevelopProductModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/model/DeveloperModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/model/GameModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/model/HasPurchaseModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/model/InGroupModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/model/OwnItemModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/model/PlayerGroupModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/model/PlayerModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/model/PurchaseModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/model/ReviewWritereviewModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/model/SoundtrackModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/model/TradeModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/model/TypeTradabilityModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/sql/scripts/databaseSetup.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/ui/LoginWindow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPSC304-JavaDemo/CPSC304-JavaDemo/src/ca/ubc/cs304/ui/TerminalTransactions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/InventoryWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/InventoryWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/ModifyWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/ModifyWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/PlayerWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/PlayerWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/ReadAReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/ReadAReview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/SearchApps.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/SearchApps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/WriteReviewWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/WriteReviewWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/330ca5b9-7113-4770-b4e1-7fa1274e9d24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/330ca5b9-7113-4770-b4e1-7fa1274e9d24/storage_v2/_src_/schema/ORA_HARRYZYH.ypqCUw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/330ca5b9-7113-4770-b4e1-7fa1274e9d24/storage_v2/_src_/schema/PUBLIC.aaZQjQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/330ca5b9-7113-4770-b4e1-7fa1274e9d24/storage_v2/_src_/schema/SYS.rUIBAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/330ca5b9-7113-4770-b4e1-7fa1274e9d24/storage_v2/_src_/schema/SYSTEM.L2avkg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8340dff8-2e4d-4dd4-8182-3d374cd57a6e.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8340dff8-2e4d-4dd4-8182-3d374cd57a6e/storage_v2/_src_/schema/ORA_HARRYZYH.ypqCUw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8340dff8-2e4d-4dd4-8182-3d374cd57a6e/storage_v2/_src_/schema/PUBLIC.aaZQjQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8340dff8-2e4d-4dd4-8182-3d374cd57a6e/storage_v2/_src_/schema/SYS.rUIBAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8340dff8-2e4d-4dd4-8182-3d374cd57a6e/storage_v2/_src_/schema/SYSTEM.L2avkg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,11 +45,10 @@
   <component name="ProjectId" id="1ZmioDEEuuZwbkFYjqbfvCCCxjG" />
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="oracle" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/sql/scripts/databaseSetup.sql" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../result/production/Steam-Database1/ui/ojdbc8.jar!/" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -126,7 +67,7 @@
   <component name="RunManager" selected="Application.Bank">
     <configuration name="Bank" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="controller.Bank" />
-      <module name="Steam-Database1" />
+      <module name="Steam-Database" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="controller.*" />
@@ -172,11 +113,6 @@
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@62f76653" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@62f76653" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@21d9ba3d" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
           </expand>
           <select />
         </treeState>
@@ -196,7 +132,8 @@
       <workItem from="1585450844628" duration="222000" />
       <workItem from="1585451081919" duration="469000" />
       <workItem from="1585451635079" duration="17000" />
-      <workItem from="1586062280659" duration="5542000" />
+      <workItem from="1586062280659" duration="5774000" />
+      <workItem from="1586068434250" duration="1351000" />
     </task>
     <servers />
   </component>

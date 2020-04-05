@@ -1,0 +1,17 @@
+drop sequence review_id_counter;
+drop table in_group;
+drop table create_for_mod;
+drop table player_group;
+drop table review_writereview;
+drop table purchase;
+drop table game;
+drop table soundtrack;
+drop table attain;
+drop table trade;
+drop table has_achievement;
+drop table own_item;
+drop table type_tradability;
+drop table player;
+drop table country_city;
+drop table develop_product;
+drop table developer;
