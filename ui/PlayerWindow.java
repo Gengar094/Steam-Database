@@ -100,17 +100,6 @@ public class PlayerWindow extends JFrame {
         String email = "email";
         String city = "city";
         String country = "country";
-        ResultSet set = bank.getPlayerInfo(Integer.toString(playerID));
-        try {
-            while (set.next()) {
-                pname = set.getString("pname");
-                email = set.getString("email");
-                city = set.getString("city");
-                country = set.getString("country");
-            }
-        } catch (SQLException e) {
-            System.out.println("should not happen here");
-        }
         // try {
         // ResultSet arr = performPlayerQuery(playerID); // assume to be array
         // while (arr.next()) {
@@ -126,7 +115,7 @@ public class PlayerWindow extends JFrame {
         this.pnameLabel = new JLabel(pname);
         this.idLabel = new JLabel(Integer.toString(playerID));
         this.emailLabel = new JLabel(email);
-        this.cityLabel = new JLabel("                      " + city);
+        this.cityLabel = new JLabel("                   " + city);
         this.countryLabel = new JLabel(country);
         this.modify = new JButton("modify");
         this.modify.addActionListener(new java.awt.event.ActionListener() {
@@ -238,25 +227,7 @@ public class PlayerWindow extends JFrame {
         "DeveloperID"};
         Object[][] data = {null, null, null, null, null}; // should be done by a query --
         this.gameTable = new JTable();
-<<<<<<< HEAD
         this.gameTable.setModel(new DefaultTableModel(null, columnNames));
-=======
-        DefaultTableModel model = (DefaultTableModel) this.gameTable.getModel();
-        model.setColumnIdentifiers(columnNames);
-        try {
-            while (rs.next()) {
-                Object[] objects = new Object[5];
-                for (int i = 0; i < 5; i++) {
-                    objects[i] = rs.getObject(i+1);
-                }
-                model.addRow(objects);
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-        this.gameTable.setModel(model);
-
->>>>>>> bb07803745a8460febd2242a419dd926e7ab26ba
         // add table to pane
         this.gamePane = new JScrollPane(this.gameTable);
         this.gameTable.setFillsViewportHeight(true);
@@ -297,23 +268,6 @@ public class PlayerWindow extends JFrame {
         this.groupTable = new JTable();
         this.groupTable.setModel(new DefaultTableModel(null, groupColumnNames));
         // add table to pane
-<<<<<<< HEAD
-=======
-        System.out.println("fafaskf");
-        try {
-            while (rsg.next()) {
-                Object[] objects = new Object[3];
-                for (int i = 0; i < 3; i++) {
-                    objects[i] = rsg.getObject(i+1);
-                }
-                groupModel.addRow(objects);
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-        System.out.println("rjrqkrn");
-        this.groupTable.setModel(groupModel);
->>>>>>> bb07803745a8460febd2242a419dd926e7ab26ba
         this.groupPane = new JScrollPane(this.groupTable);
         this.groupTable.setFillsViewportHeight(true);
 
@@ -414,6 +368,11 @@ public class PlayerWindow extends JFrame {
             }
             System.out.println("successful");
         }
+    }
+
+    private  ResultSet searchGame() {
+        String keyword = JOptionPane.showInputDialog(null, "Please enter the keyword you want to search with");
+        return bank.searchGame(keyword);
     }
 
     private void joinGroup() {
