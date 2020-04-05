@@ -267,8 +267,8 @@ public class DatabaseConnectionHandler {
 					+ "ORDER BY dp.app_id";
 			rs = stmt.executeQuery(query);
 
-			rs.close();
-			stmt.close();
+//			rs.close();
+//			stmt.close();
 		} catch (SQLException e) {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 		}
@@ -306,8 +306,8 @@ public class DatabaseConnectionHandler {
 					+ "ORDER BY p.player_id";
 			rs = stmt.executeQuery(query);
 
-			rs.close();
-			stmt.close();
+//			rs.close();
+//			stmt.close();
 		} catch (SQLException e) {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 		}
