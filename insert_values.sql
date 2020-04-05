@@ -94,6 +94,11 @@ insert into purchase values('400', '000002', '2017-06-21');
 insert into purchase values('500', '000004', '2019-06-30');
 insert into purchase values('300', '000009', '2020-01-02');
 insert into purchase values('300', '000041', '2020-04-02');
+insert into purchase values('100', '000031', '2020-04-03');
+insert into purchase values('200', '000031', '2020-03-30');
+insert into purchase values('300', '000031', '2020-04-05');
+insert into purchase values('400', '000031', '2020-04-04');
+insert into purchase values('500', '000031', '2020-04-01');
 
 insert into game values('000000', 'Action');
 insert into game values('000001', 'Action');
