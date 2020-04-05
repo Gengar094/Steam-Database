@@ -155,7 +155,7 @@ public class PlayerWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 InventoryWindow inventory = new InventoryWindow();
-                inventory.main();
+                inventory.main(bank, Integer.toString(playerID));
             }
         });
         this.inventory.setMaximumSize(new Dimension(120, 40));

@@ -201,7 +201,7 @@ public class DatabaseConnectionHandler {
 		}
 	}
 
-	public void giftItem(TradeModel model) {
+	public void giftItem(TradeModel model) throws SQLException{
 		try {
 			PreparedStatement ps1 = connection
 					.prepareStatement("UPDATE own_item SET player_id = ? WHERE item_id = ?");
@@ -227,6 +227,7 @@ public class DatabaseConnectionHandler {
 		} catch (SQLException e) {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 			rollbackConnection();
+			throw e;
 		}
 	}
 
