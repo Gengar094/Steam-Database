@@ -2,9 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95e60ba7-f934-4edc-b4f9-5135b51c7948" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Bank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/DatabaseConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/DatabaseConnectionHandler.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Bank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/DatabaseConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/DatabaseConnectionHandler.java" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/model/ReviewWritereviewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/ReviewWritereviewModel.java" afterDir="false" />
+=======
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/ui/InventoryWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/InventoryWindow.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/delegates/TerminalTransactionsDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/delegates/TerminalTransactionsDelegate.java" afterDir="false" />
+>>>>>>> c74f6482ac31cd70be7307628f58b987b101e834
+>>>>>>> dd19d057a5ff6d152e7ac33ff352c23ed286cb8c
+>>>>>>> 0d7b662a43703d634375f00bb01af46387947443
       <change beforePath="$PROJECT_DIR$/ui/PlayerWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/PlayerWindow.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,6 +40,7 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
+<<<<<<< HEAD
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -41,6 +58,9 @@
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
     </expand>
+=======
+    <expand />
+>>>>>>> 0d7b662a43703d634375f00bb01af46387947443
     <select />
   </component>
   <component name="ErrorTreeViewConfiguration">
@@ -189,9 +209,17 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="808" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1586115183604">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="808" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586115183604" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1586114064772">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1586114064772" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1586115482214">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586115482214" />
   </component>
 </project>

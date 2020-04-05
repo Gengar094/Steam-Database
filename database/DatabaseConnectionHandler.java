@@ -231,6 +231,32 @@ public class DatabaseConnectionHandler {
 		}
 	}
 
+	public void writeReview(ReviewWritereviewModel model) throws SQLException {
+		try {
+			int nextID_from_seq = 0;
+			String sql = "select review_id_counter.nextval from DUAL";
+			PreparedStatement nextval = connection.prepareStatement(sql);
+			ResultSet rs = nextval.executeQuery();
+			if(rs.next()) nextID_from_seq = rs.getInt(1);
+
+			PreparedStatement ps = connection.prepareStatement("INSERT INTO review_writereview VALUES(?, ?, ?, ?, ?)");
+			ps.setString(1, Integer.toString(nextID_from_seq));
+			ps.setString(2, model.getRdate());
+			ps.setBoolean(3, model.getRecommendation());
+			ps.setString(4, model.getPlayer_id());
+			ps.setString(5, model.getApp_id());
+
+			ps.executeUpdate();
+			connection.commit();
+
+			ps.close();
+		} catch (SQLException e) {
+			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+			rollbackConnection();
+			throw e;
+		}
+	}
+
 	public ResultSet readGameInfo(){
 		ResultSet rs = null;
 		try {

@@ -20,5 +20,5 @@ public class ReviewWritereviewModel {
     public String getRdate(){return rdate;}
     public boolean getRecommendation(){return recommendation;}
     public String getPlayer_id(){return player_id;}
-    private String getApp_id(){return app_id;}
+    public String getApp_id(){return app_id;}
 }
