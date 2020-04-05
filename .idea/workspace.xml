@@ -122,12 +122,17 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@24fc24d5" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@79e4fab5" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@24fc24d5" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@323d3055" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@79e4fab5" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@34e97442" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@79e4fab5" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@26eb6a16" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -184,7 +189,12 @@
       <workItem from="1586125894685" duration="240000" />
       <workItem from="1586126138673" duration="486000" />
       <workItem from="1586126629162" duration="736000" />
-      <workItem from="1586127370705" duration="137000" />
+      <workItem from="1586127370705" duration="268000" />
+      <workItem from="1586127642964" duration="608000" />
+      <workItem from="1586128278914" duration="492000" />
+      <workItem from="1586128776168" duration="284000" />
+      <workItem from="1586129063753" duration="418000" />
+      <workItem from="1586129542554" duration="64000" />
     </task>
     <servers />
   </component>
