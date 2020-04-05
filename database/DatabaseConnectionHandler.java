@@ -113,8 +113,8 @@ public class DatabaseConnectionHandler {
 			// result.add(model);
 			// }
 
-			rs.close();
-			stmt.close();
+			// rs.close();
+			// stmt.close();
 		} catch (SQLException e) {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 		}
