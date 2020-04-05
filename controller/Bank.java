@@ -89,11 +89,9 @@ public class Bank {
 		dbHandler.refundGame(playerId, appId);
 	}
 
-	/*
-	public ResultSet listPurchasedGames() {
-		return dbHandler.listPurchasedGames();
+	public ResultSet getPurchasedGamesInfo(String playerID) {
+		return dbHandler.getPurchasedGamesInfo(playerID);
 	}
-	*/
 
 	public void listPurchasedGames(){
 		// read from getPurchaseGamesInfo
@@ -116,6 +114,10 @@ public class Bank {
 	public ResultSet readGameInfo(){ return dbHandler.readGameInfo();}
 
 	public PlayerGroupModel[] getGroupInfo(){ return dbHandler.getGroupInfo();}
+
+	public void writeReview(ReviewWritereviewModel model) throws SQLException {
+    	dbHandler.writeReview(model);
+	}
 
     /**
 	 * TermainalTransactionsDelegate Implementation

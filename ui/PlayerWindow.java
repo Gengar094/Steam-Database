@@ -294,8 +294,12 @@ public class PlayerWindow extends JFrame {
         return null;
     }
 
-    private ResultSet getAllGameThePlayerHas() {
-        return null;
+    private ResultSet getPurchasedGamesInfo() {
+        //try {
+        return bank.getPurchasedGamesInfo(Integer.toString(this.playerID));
+        //} catch () {
+
+        //}
     }
 
     private ResultSet getAllGroupThePlayerHas() {
@@ -388,6 +392,20 @@ public class PlayerWindow extends JFrame {
                 noFound("Group Name");
             } catch (Exception e) {
                 noFound("Already quit");
+            }
+        }
+    }
+
+    private void writeReview() throws SQLException {
+        String app_ID = JOptionPane.showInputDialog(null, "Please enter the ID of game you want to review");
+        if (app_ID != null) {
+            System.out.println(app_ID);
+            try {
+                String recommendation = JOptionPane.showInputDialog(null, "Enter 1 if you recommend the game and 0 if not");
+                bank.writeReview(new ReviewWritereviewModel("0", java.time.LocalDate.now().toString(), (recommendation == "1") ? true : false, Integer.toString(this.playerID), app_ID));
+                JOptionPane.showMessageDialog(null, "successful");
+            } catch (SQLException e) {
+                // TODO
             }
         }
     }
