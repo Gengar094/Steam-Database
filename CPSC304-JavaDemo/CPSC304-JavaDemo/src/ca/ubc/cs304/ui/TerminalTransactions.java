@@ -135,8 +135,35 @@ public class TerminalTransactions {
 		delegate.giftItem(model);
 	}
 
+	private void handleRefundGame(){
+		String appID = null;
+		while (appID == null || appID.length() <= 0) {
+			System.out.print("Please enter the App ID you wish to refund: ");
+			appID= readLine().trim();
+		}
 
+		delegate.refundGame(appID);
+	}
 
+	private void handleBuyGame(){
+		String playerID = null;
+		while (playerID == null || playerID.length() <= 0) {
+			System.out.print("Please enter the Player ID you wish to buy for: ");
+			playerID= readLine().trim();
+		}
+
+		String appID = null;
+		while (appID == null || appID.length() <= 0) {
+			System.out.print("Please enter the App ID you wish to buy: ");
+			appID= readLine().trim();
+		}
+
+		TradeModel model = new PurchaseModel( playerID,
+				appID,
+				java.time.LocalDate.now().toString());
+
+		delegate.buyGame(model);
+	}
 	
 	private void handleDeleteOption() {
 		int branchId = INVALID_INPUT;
