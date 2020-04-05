@@ -330,6 +330,14 @@ public class PlayerWindow extends JFrame {
         return bank.getPlayerInfo(Integer.toString(this.playerID));
     }
 
+    private ResultSet getInventory() {
+        //try {
+            return bank.getInventory(Integer.toString(this.playerID));
+            //} catch () {
+    
+            //}
+    }
+
     private void buyNewApp() {
         String appId = JOptionPane.showInputDialog(null, "Please enter the app ID you want to purchase");
         if (appId != null) {
@@ -413,6 +421,7 @@ public class PlayerWindow extends JFrame {
             }
         }
     }
+
 
     private void noFound(String type) { // use buy above functionss
         if (type == "Buy Not Found"){

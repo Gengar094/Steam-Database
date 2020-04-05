@@ -314,6 +314,21 @@ public class DatabaseConnectionHandler {
 		return rs;
 	}
 
+	public ResultSet getInventory(String playerID){
+		ResultSet rs = null;
+		try {
+			Statement stmt = connection.createStatement();
+			String query = "SELECT oi.item_id, oi.item_type FROM own_item oi, type_tradability tt WHERE oi.player_id = " + player_id + " AND oi.item_type = tt.item_type";
+			rs = stmt.executeQuery(query);
+
+			//rs.close();
+			//stmt.close();
+		} catch (SQLException e) {
+			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+		}
+		return rs;
+	}
+
 
 	public void deleteBranch(int branchId) {
 		try {
