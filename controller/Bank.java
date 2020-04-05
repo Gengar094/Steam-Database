@@ -99,6 +99,8 @@ public class Bank {
 		//read from ResultSet
 	}
 
+	public ResultSet getAllGroupThePlayerHas(String playerID) { return dbHandler.getAllGroupThePlayerHas(playerID); }
+
 	public void addSelfToGroup(InGroupModel model) {
 		dbHandler.addSelfToGroup(model);
 	}

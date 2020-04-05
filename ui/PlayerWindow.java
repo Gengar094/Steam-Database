@@ -295,7 +295,11 @@ public class PlayerWindow extends JFrame {
     }
 
     private ResultSet getAllGroupThePlayerHas() {
-        return null;
+        //try {
+            return bank.getAllGroupThePlayerHas(Integer.toString(this.playerID));
+        //} catch () {
+
+        //}
     }
 
     private Object[][] readCurrentGames() {
