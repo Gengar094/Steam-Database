@@ -107,7 +107,7 @@ public class Bank {
 		dbHandler.removeSelfFromGroup(gname, playerId);
 	}
 
-	public void giftItem(TradeModel model) {
+	public void giftItem(TradeModel model) throws SQLException{
 		dbHandler.giftItem(model);
 	}
 

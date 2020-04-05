@@ -1,12 +1,18 @@
 package ui;
+import controller.Bank;
+import model.TradeModel;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.*;
+import java.sql.SQLException;
 
 public class InventoryWindow extends JFrame{
     public JButton trade;
     public JButton quit;
+    public Bank bank;
+    public String playerID;
 
     public JPanel left;
     public JPanel buttonBoard;
@@ -18,9 +24,11 @@ public class InventoryWindow extends JFrame{
     public InventoryWindow() {
         super("Inventory");
     }
-    public void main() {
+    public void main(Bank bank, String playerID) {
         // ****************************** set left panel *******************//
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.bank = bank;
+        this.playerID = playerID;
 
         this.buttonBoard = new JPanel();
         this.buttonBoard.setLayout(new BoxLayout(this.buttonBoard, BoxLayout.Y_AXIS));
@@ -83,29 +91,40 @@ public class InventoryWindow extends JFrame{
 
         if (option == JOptionPane.YES_OPTION) {
 
-            String daysInput = itemField.getText();
-            String assignmentsInput = playerField.getText();
+            String itemID = itemField.getText();
+            String playerID = playerField.getText();
 
-            try {
-                int days = Integer.parseInt(daysInput);
-                int assignments = Integer.parseInt(assignmentsInput); // perform query
-            } catch (NumberFormatException nfe) {
-                badOperation();
+            if (playerID.equals(this.playerID)) {
+                System.out.println("bad");
+                badOperation("trade with self");
                 return;
             }
 
-            JPanel pane = new JPanel();
+            try {
+                bank.giftItem(new TradeModel(this.playerID, playerID, itemID, java.time.LocalDate.now().toString()));
 
-            pane.setLayout(new BoxLayout(pane, BoxLayout.PAGE_AXIS));
+                JOptionPane.showMessageDialog(null, "successful");
+            } catch (SQLException e) {
+                if (e.getErrorCode() == 1) {
+                    badOperation("not owned");
+                } else if (e.getErrorCode() == 2291) {
+                    badOperation("not found");
+                }
+            }
 
-            pane.add(new JLabel("You have successfully added a review"));
-
-            JOptionPane.showMessageDialog(null, pane);
         }
     }
 
-    private void badOperation() {
-        JOptionPane.showMessageDialog(null, "Sorry, we cannot find such an item or player in our database",
-        "Error!", JOptionPane.WARNING_MESSAGE);
+    private void badOperation(String type) {
+        if (type == "not found") {
+            JOptionPane.showMessageDialog(null, "Sorry, we cannot find such an item or player in our database",
+                    "Error!", JOptionPane.WARNING_MESSAGE);
+        } else if (type == "not owned") {
+            JOptionPane.showMessageDialog(null, "Sorry, you do not own the item",
+                    "Error!", JOptionPane.WARNING_MESSAGE);
+        } else if (type == "trade with self") {
+            JOptionPane.showMessageDialog(null, "Sorry, you cannot trade with yourself",
+                    "Error!", JOptionPane.WARNING_MESSAGE);
+        }
     }
 }
