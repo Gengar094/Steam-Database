@@ -1,6 +1,7 @@
 package ui;
 import controller.Bank;
 import database.DatabaseConnectionHandler;
+import model.InGroupModel;
 import model.PurchaseModel;
 
 import javax.imageio.ImageIO;
@@ -339,11 +340,21 @@ public class PlayerWindow extends JFrame {
     }
 
     private void joinGroup() {
-        String name = JOptionPane.showInputDialog(null, "Please enter the name of group you want to join");
+        String gname = JOptionPane.showInputDialog(null, "Please enter the name of group you want to join");
+        if (gname != null) {
+            System.out.println(gname);
+            bank.addSelfToGroup(new InGroupModel(gname, Integer.toString(this.playerID)));
+            JOptionPane.showMessageDialog(null, "successful");
+        }
     }
 
     private void quitGroup() {
-        String name = JOptionPane.showInputDialog(null, "Please enter the name of group you want to quit");
+        String gname = JOptionPane.showInputDialog(null, "Please enter the name of group you want to quit");
+        if (gname != null) {
+            System.out.println(gname);
+            bank.removeSelfFromGroup(gname, Integer.toString(this.playerID));
+            JOptionPane.showMessageDialog(null, "successful");
+        }
     }
 
     private void noFound(String type) { // use buy above functionss
