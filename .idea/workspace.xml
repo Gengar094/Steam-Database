@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="95e60ba7-f934-4edc-b4f9-5135b51c7948" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Bank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/DatabaseConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/DatabaseConnectionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/PlayerWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/PlayerWindow.java" afterDir="false" />
     </list>
@@ -39,26 +40,15 @@
         <item name="ORA_HARRYZYH: schema" type="3abd1b6a:OraImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@dbhost.students.cs.ubc.ca" type="feb32156:DbDataSourceImpl" />
-        <item name="ORA_HARRYZYH: schema" type="3abd1b6a:OraImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="GAME: table" type="942f455b:OraImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@dbhost.students.cs.ubc.ca" type="feb32156:DbDataSourceImpl" />
-        <item name="ORA_HARRYZYH: schema" type="3abd1b6a:OraImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="PURCHASE: table" type="942f455b:OraImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="ErrorTreeViewConfiguration">
     <option name="autoscrollToSource" value="true" />
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Steam-Database" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -133,12 +123,7 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@76b1e3ed" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@76b1e3ed" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@7859a442" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@8ed64e1c" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -163,6 +148,13 @@
       <workItem from="1586068434250" duration="4044000" />
       <workItem from="1586073135579" duration="10372000" />
       <workItem from="1586084865211" duration="406000" />
+      <workItem from="1586085276642" duration="275000" />
+      <workItem from="1586105646986" duration="647000" />
+      <workItem from="1586106361103" duration="594000" />
+      <workItem from="1586106976033" duration="947000" />
+      <workItem from="1586107949318" duration="402000" />
+      <workItem from="1586108355090" duration="295000" />
+      <workItem from="1586108658188" duration="293000" />
     </task>
     <servers />
   </component>

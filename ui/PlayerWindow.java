@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 import java.awt.image.BufferedImage;
 
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -314,8 +315,16 @@ public class PlayerWindow extends JFrame {
         String appId = JOptionPane.showInputDialog(null, "Please enter the app ID you want to purchase");
         if (appId != null) {
             System.out.println(appId); // should perform query, and perform insert statement
-            bank.buyGame(new PurchaseModel(Integer.toString(this.playerID), appId, java.time.LocalDate.now().toString()));
-            JOptionPane.showMessageDialog(null, "successful");
+            try {
+                bank.buyGame(new PurchaseModel(Integer.toString(this.playerID), appId, java.time.LocalDate.now().toString()));
+                JOptionPane.showMessageDialog(null, "successful");
+            } catch (SQLException e) {
+                if (e.getErrorCode() == 2291) {
+                    noFound("Buy Not Found");
+                } else if (e.getErrorCode() == 1) {
+                    noFound("Buy Already Has");
+                }
+            }
         }
     }
 

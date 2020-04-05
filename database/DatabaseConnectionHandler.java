@@ -76,7 +76,7 @@ public class DatabaseConnectionHandler {
 		}
 	}
 
-	public void buyGame(PurchaseModel model) {
+	public void buyGame(PurchaseModel model) throws SQLException {
 		try {
 			PreparedStatement ps = connection.prepareStatement("INSERT INTO purchase VALUES (?,?,?)");
 			ps.setString(1, model.getPlayer_id());
@@ -90,6 +90,7 @@ public class DatabaseConnectionHandler {
 		} catch (SQLException e) {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 			rollbackConnection();
+			throw e;
 		}
 	}
 
