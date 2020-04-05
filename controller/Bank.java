@@ -103,6 +103,8 @@ public class Bank {
 		dbHandler.addSelfToGroup(model);
 	}
 
+	public ResultSet getAllGroupThePlayerHas(String playerID) { return dbHandler.getAllGroupThePlayerHas(playerID); }
+
 	public void removeSelfFromGroup(String gname, String playerId) throws Exception {
 		dbHandler.removeSelfFromGroup(gname, playerId);
 	}
