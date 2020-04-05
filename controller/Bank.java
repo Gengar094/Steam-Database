@@ -81,7 +81,7 @@ public class Bank {
 
 
 
-	public void buyGame(PurchaseModel model) {
+	public void buyGame(PurchaseModel model) throws SQLException {
 		dbHandler.buyGame(model);
 	}
 
