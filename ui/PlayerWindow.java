@@ -21,13 +21,11 @@ import javax.swing.table.DefaultTableModel;
 
 import java.awt.image.BufferedImage;
 
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Vector;
 
 public class PlayerWindow extends JFrame {
     public int playerID;
@@ -225,27 +223,11 @@ public class PlayerWindow extends JFrame {
         subPanel.add(this.searchGames);
 
         // set up table
-        ResultSet rs = bank.getPurchasedGamesInfo(Integer.toString(playerID));
-        String[] columnNames = {"GameID", "GameName", "Genre", "DeveloperName", "Achievement"};
+        String[] columnNames = {"GameID", "GameName", "Genre", "Achievement",
+        "DeveloperID"};
         Object[][] data = {null, null, null, null, null}; // should be done by a query --
         this.gameTable = new JTable();
-        DefaultTableModel model = (DefaultTableModel) this.gameTable.getModel();
-        model.setColumnIdentifiers(columnNames);
-        try {
-            while (rs.next()) {
-                Object[] objects = new Object[5];
-                for (int i = 0; i < 5; i++) {
-                    System.out.println("1");
-                    objects[i] = rs.getObject(i+1);
-                    System.out.println("2");
-                }
-                model.addRow(objects);
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-        this.gameTable.setModel(model);
-
+        this.gameTable.setModel(new DefaultTableModel(null, columnNames));
         // add table to pane
         this.gamePane = new JScrollPane(this.gameTable);
         this.gameTable.setFillsViewportHeight(true);
@@ -342,6 +324,10 @@ public class PlayerWindow extends JFrame {
         //} catch () {
 
         //}
+    }
+
+    private ResultSet getPlayerInfo(){
+        return bank.getPlayerInfo(Integer.toString(this.playerID));
     }
 
     private void buyNewApp() {
@@ -466,39 +452,4 @@ public class PlayerWindow extends JFrame {
         }
         return image;
     }
-
-//    public void resultSetToTableModel(ResultSet rs, JTable table) throws SQLException{
-//        //Create new table model
-//        DefaultTableModel tableModel = new DefaultTableModel();
-//
-//        //Retrieve meta data from ResultSet
-//        System.out.println(rs);
-//        ResultSetMetaData metaData = rs.getMetaData();
-//        System.out.println("1");
-//        //Get number of columns from meta data
-//        int columnCount = metaData.getColumnCount();
-//        System.out.println("2");
-//        //Get all column names from meta data and add columns to table model
-//        for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++){
-//            tableModel.addColumn(metaData.getColumnLabel(columnIndex));
-//            System.out.println("3");
-//        }
-//
-//        //Create array of Objects with size of column count from meta data
-//        Object[] row = new Object[columnCount];
-//
-//        //Scroll through result set
-//        while (rs.next()){
-//            System.out.println("4s");
-//            //Get object from column with specific index of result set to array of objects
-//            for (int i = 0; i < columnCount; i++){
-//                row[i] = rs.getObject(i+1);
-//            }
-//            //Now add row to table model with that array of objects as an argument
-//            tableModel.addRow(row);
-//        }
-//
-//        //Now add that table model to your table and you are done :D
-//        table.setModel(tableModel);
-//    }
 }
