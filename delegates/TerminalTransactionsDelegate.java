@@ -25,9 +25,12 @@ public interface TerminalTransactionsDelegate {
 	public void refundGame(String playerID, String appId);
 	//public ResultSet listPurchasedGames(); should be a void function that shows the purchased games
 	public void listPurchasedGames();
+	public ResultSet getAllGroupThePlayerHas(String playerID);
 	public void addSelfToGroup(InGroupModel model);
 	public void removeSelfFromGroup(String gname, String playerID);
 	public void giftItem(TradeModel model);
+	public ResultSet readGameInfo();
+	public PlayerGroupModel[] getGroupInfo();
 	
 	public void terminalTransactionsFinished();
 }

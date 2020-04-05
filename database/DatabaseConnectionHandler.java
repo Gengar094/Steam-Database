@@ -231,7 +231,44 @@ public class DatabaseConnectionHandler {
 		}
 	}
 
+	public ResultSet readGameInfo(){
+		ResultSet rs = null;
+		try {
+			Statement stmt = connection.createStatement();
+			String query = "SELECT dp.app_id, dp.dv_name, dp.ddate, dp.product_name, dp.price, dp.base_game_name, g.genre "
+					+ "FROM develop_product dp LEFT JOIN game g "
+					+ "WHERE dp.app_id = g.app_id  GROUP BY dp.app_id "
+					+ "ORDER BY dp.app_id";
+			rs = stmt.executeQuery(query);
 
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+		}
+		return rs;
+	}
+
+	public PlayerGroupModel[] getGroupInfo() {
+		ArrayList<PlayerGroupModel> result = new ArrayList<PlayerGroupModel>();
+
+		try {
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM player_group");
+
+			while(rs.next()) {
+				PlayerGroupModel model = new PlayerGroupModel(rs.getString("gname"),
+						rs.getInt("num_mem"),
+						rs.getString("tag"));
+				result.add(model);
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+		}
+		return result.toArray(new PlayerGroupModel[result.size()]);
+	}
 
 
 
