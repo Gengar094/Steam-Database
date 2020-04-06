@@ -344,7 +344,7 @@ public class DatabaseConnectionHandler {
 		ResultSet rs = null;
 		try {
 			Statement stmt = connection.createStatement();
-			String query = "SELECT oi.item_id, oi.item_type, tt.tradability FROM own_item oi, type_tradability tt WHERE oi.player_id = " + playerID + " AND oi.item_type = tt.item_type";
+			String query = "SELECT oi.item_id, oi.item_type FROM own_item oi, type_tradability tt WHERE oi.player_id = " + playerID + " AND oi.item_type = tt.item_type";
 			rs = stmt.executeQuery(query);
 
 			//rs.close();
@@ -368,6 +368,59 @@ public class DatabaseConnectionHandler {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 		}
 		return rs;
+	}
+
+	public void modifyProfile(String playerID, String field, String value) {
+		try {
+			switch (field) {
+				case "pname": {
+					PreparedStatement ps = connection.prepareStatement("UPDATE player SET pname = ? WHERE player_id = ?");
+					ps.setString(1, value);
+					ps.setString(2, playerID);
+
+					int rowCount = ps.executeUpdate();
+					if (rowCount == 0) {
+						System.out.println(WARNING_TAG + " PlayerID " + playerID + " does not exist!");
+					}
+
+					connection.commit();
+
+					ps.close();
+				}
+				case "email": {
+					PreparedStatement ps = connection.prepareStatement("UPDATE player SET email = ? WHERE player_id = ?");
+					ps.setString(1, value);
+					ps.setString(2, playerID);
+
+					int rowCount = ps.executeUpdate();
+					if (rowCount == 0) {
+						System.out.println(WARNING_TAG + " PlayerID " + playerID + " does not exist!");
+					}
+
+					connection.commit();
+
+					ps.close();
+				}
+				case "city": {
+					PreparedStatement ps = connection.prepareStatement("UPDATE player SET city = ? WHERE player_id = ?");
+					ps.setString(1, value);
+					ps.setString(2, playerID);
+
+					int rowCount = ps.executeUpdate();
+					if (rowCount == 0) {
+						System.out.println(WARNING_TAG + " PlayerID " + playerID + " does not exist!");
+					}
+
+					connection.commit();
+
+					ps.close();
+				}
+
+			}
+		} catch (SQLException e) {
+			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+			rollbackConnection();
+		}
 	}
 
 	public void deleteBranch(int branchId) {

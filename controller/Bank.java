@@ -129,6 +129,10 @@ public class Bank {
     	return dbHandler.searchReview(appID);
 	}
 
+	public void modifyProfile(String playerID, String field, String value){
+    	dbHandler.modifyProfile(playerID, field, value);
+	}
+
     /**
 	 * TermainalTransactionsDelegate Implementation
 	 * 
