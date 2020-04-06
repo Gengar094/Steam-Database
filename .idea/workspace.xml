@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="95e60ba7-f934-4edc-b4f9-5135b51c7948" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Bank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/DatabaseConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/DatabaseConnectionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/ModifyWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/ModifyWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/PlayerWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/PlayerWindow.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -217,7 +217,18 @@
       <workItem from="1586142255001" duration="653000" />
       <workItem from="1586142912578" duration="85000" />
       <workItem from="1586143000890" duration="1139000" />
-      <workItem from="1586144153273" duration="168000" />
+      <workItem from="1586144153273" duration="671000" />
+      <workItem from="1586144829947" duration="295000" />
+      <workItem from="1586145128373" duration="566000" />
+      <workItem from="1586145738676" duration="775000" />
+      <workItem from="1586146579488" duration="541000" />
+      <workItem from="1586147142726" duration="787000" />
+      <workItem from="1586147957175" duration="229000" />
+      <workItem from="1586148189632" duration="261000" />
+      <workItem from="1586148458217" duration="199000" />
+      <workItem from="1586148660704" duration="545000" />
+      <workItem from="1586149218847" duration="559000" />
+      <workItem from="1586149875528" duration="226000" />
     </task>
     <servers />
   </component>

@@ -357,8 +357,7 @@ public class DatabaseConnectionHandler {
 
 	public void modifyProfile(String playerID, String field, String value) {
 		try {
-			switch (field) {
-				case "pname": {
+				if (field.equals("pname")) {
 					PreparedStatement ps = connection.prepareStatement("UPDATE player SET pname = ? WHERE player_id = ?");
 					ps.setString(1, value);
 					ps.setString(2, playerID);
@@ -372,7 +371,7 @@ public class DatabaseConnectionHandler {
 
 					ps.close();
 				}
-				case "email": {
+				else if (field.equals("email")) {
 					PreparedStatement ps = connection.prepareStatement("UPDATE player SET email = ? WHERE player_id = ?");
 					ps.setString(1, value);
 					ps.setString(2, playerID);
@@ -386,7 +385,7 @@ public class DatabaseConnectionHandler {
 
 					ps.close();
 				}
-				case "city": {
+				else if (field.equals("city")) {
 					PreparedStatement ps = connection.prepareStatement("UPDATE player SET city = ? WHERE player_id = ?");
 					ps.setString(1, value);
 					ps.setString(2, playerID);
@@ -400,8 +399,6 @@ public class DatabaseConnectionHandler {
 
 					ps.close();
 				}
-
-			}
 		} catch (SQLException e) {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 			rollbackConnection();

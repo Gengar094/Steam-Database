@@ -19,8 +19,9 @@ public class ModifyWindow extends JFrame{
     public JButton quit;
     public JButton submit;
     public String result;
+    public String newVal;
 
-    public ModifyWindow(Bank bank, PlayerWindow window, String playerID) {
+    public ModifyWindow(Bank bank, String playerID) {
         super("Modification");
         this.setLayout(new BorderLayout());
         this.bank = bank;
@@ -36,11 +37,8 @@ public class ModifyWindow extends JFrame{
         });
         this.submit = new JButton("submit");
         this.submit.addActionListener(new java.awt.event.ActionListener() {
-            private String result;
             @Override
             public void actionPerformed(ActionEvent e) {
-                String result = modifyInfo();
-                set(result);
             }
         });
         JPanel buttonPane = new JPanel();
@@ -48,31 +46,33 @@ public class ModifyWindow extends JFrame{
         buttonPane.add(this.submit);
         buttonPane.add(Box.createHorizontalStrut(50));
         buttonPane.add(this.quit);
-        this.pane.setLayout(new BoxLayout (this.pane, BoxLayout.X_AXIS));
-        Object[] options = {"Username", "email", "city", "country"};
+        this.pane.setLayout(new BoxLayout(this.pane, BoxLayout.X_AXIS));
+        Object[] options = {"pname", "email", "city"};
         this.box = new JComboBox(options);
         this.box.setMaximumSize(new Dimension(100, 40));
         this.textField = new JTextField("Modify to ...");
-        this.textField.setMaximumSize(new Dimension(500,40));
+        this.textField.setMaximumSize(new Dimension(500, 40));
         this.pane.add(box);
-        
+
         this.pane.add(this.textField);
-        add(this.pane, BorderLayout.NORTH);
-        add(buttonPane, BorderLayout.SOUTH);
-        setSize(new Dimension(500, 200));
-        this.setLocationRelativeTo(null);
-        setVisible(true);
+        int option = JOptionPane.showConfirmDialog(null, this.pane, "Please fill the field", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        if (option == 0) {
+            this.result = box.getSelectedItem().toString();
+            this.newVal = textField.getText();
+        }
+        modifyInfo();
     }
 
-	public String modifyInfo() {
+
+	public void modifyInfo() {
         String newVal = this.textField.getText();
         if (newVal != null) {
+            System.out.println("here");
+            System.out.println(this.playerID);
+            System.out.println(box.getSelectedItem().toString());
             this.bank.modifyProfile(this.playerID, box.getSelectedItem().toString(), newVal);
-            refreshInfo(box.getSelectedItem().toString());
-            return "yes";
         } else {
             JOptionPane.showMessageDialog(null, "Sorry, you cannot leave empty field", "Not allowed!", JOptionPane.ERROR_MESSAGE);
-            return "fail";
         }
 	}
 
@@ -117,7 +117,7 @@ public class ModifyWindow extends JFrame{
             }
         }
 
-        else if (field.equals("Username")) {
+        else if (field.equals("pname")) {
             ResultSet set = this.bank.getPlayerInfo(this.playerID);
             String pname = "";
             try {

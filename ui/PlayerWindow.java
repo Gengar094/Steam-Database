@@ -63,6 +63,7 @@ public class PlayerWindow extends JFrame {
     public JButton inventory;
     public JButton read;
     public JButton popular;
+    public JButton refresh;
 
     public JScrollPane gamePane;
     public JScrollPane groupPane;
@@ -122,7 +123,10 @@ public class PlayerWindow extends JFrame {
         this.modify.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // ModifyWindow modify = new ModifyWindow(bank, Integer.toString(playerID));
+                ModifyWindow modify = new ModifyWindow(bank, Integer.toString(playerID));
+                System.out.println(modify.result);
+                System.out.println(modify.newVal);
+                setLabel(modify.result, modify.newVal);
             }
         });
 
@@ -178,12 +182,22 @@ public class PlayerWindow extends JFrame {
                 readAReview.singleDialogInformation();
             }
         });
+        this.refresh = new JButton("Refresh");
+        this.refresh.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                refreshTable();
+            }
+        });
+        this.refresh.setMaximumSize(new Dimension(120, 40));
         this.read.setMaximumSize(new Dimension(120, 40));
         this.func.add(this.inventory);
         this.info.add(Box.createVerticalStrut(10));
         this.func.add(this.writeReview);
         this.info.add(Box.createVerticalStrut(10));
         this.func.add(this.read);
+        this.info.add(Box.createVerticalStrut(10));
+        this.func.add(this.refresh);
         
 
         this.controlPanel = new JPanel();
@@ -459,5 +473,42 @@ public class PlayerWindow extends JFrame {
                 break;
         }
         return image;
+    }
+
+    private void setLabel(String field, String val) {
+        if (field.equals("pname")) {
+            this.pnameLabel.setText(val);
+            this.pnameLabel.repaint();
+        } else if (field.equals("email")) {
+            this.emailLabel.setText(val);
+            this.emailLabel.repaint();
+        } else if (field.equals("city")) {
+            this.cityLabel.setText(val);
+            this.cityLabel.repaint();
+        }
+    }
+
+    private void refreshTable() {
+        ResultSet rs = this.bank.getPurchasedGamesInfo(Integer.toString(this.playerID));
+        String[] columnNames = {"GameID", "GameName", "Genre", "DeveloperName", "Achievement"};
+        this.gameTable = new JTable();
+        DefaultTableModel model = (DefaultTableModel) this.gameTable.getModel();
+        model.setRowCount(0);
+        model.setColumnIdentifiers(columnNames);
+        try {
+            while (rs.next()) {
+                System.out.println("runhere");
+                Object[] objects = new Object[5];
+                for (int i = 0; i < 5; i++) {
+                    objects[i] = rs.getObject(i+1);
+                }
+                model.addRow(objects);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        model.setRowCount(0);
+        model.fireTableDataChanged();
+        this.gameTable.setModel(model);
     }
 }
