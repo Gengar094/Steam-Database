@@ -62,6 +62,7 @@ public class PlayerWindow extends JFrame {
     public JButton writeReview;
     public JButton inventory;
     public JButton read;
+    public JButton popular;
 
     public JScrollPane gamePane;
     public JScrollPane groupPane;
@@ -121,8 +122,7 @@ public class PlayerWindow extends JFrame {
         this.modify.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ModifyWindow modify = new ModifyWindow();
-                modify.modifyInfo();
+                // ModifyWindow modify = new ModifyWindow(bank, Integer.toString(playerID));
             }
         });
 
@@ -192,6 +192,14 @@ public class PlayerWindow extends JFrame {
         this.gameView = new JPanel();
         this.games = new JLabel("Game");
         this.games.setFont(new java.awt.Font("Lucida Grande", 1, 13));
+        this.popular = new JButton("Popular");
+        this.popular.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+//                popularApps pop = new popularApps();
+//                pop.searchPane(bank);
+            }
+        });
         this.buy = new JButton("Buy");
         this.buy.addActionListener(new java.awt.event.ActionListener() {
             @Override
@@ -217,6 +225,7 @@ public class PlayerWindow extends JFrame {
         JPanel subPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         subPanel.add(this.games);
         subPanel.add(Box.createRigidArea(new Dimension(150, 0)));
+        subPanel.add(this.popular);
         subPanel.add(this.buy);
         subPanel.add(this.delete);
         subPanel.add(this.searchGames);
@@ -479,6 +488,7 @@ public class PlayerWindow extends JFrame {
             JOptionPane.showMessageDialog(null, "Sorry, you cannot quit a group that you are not in", "You are not the member!", JOptionPane.ERROR_MESSAGE);
         }
     }
+
 
     private BufferedImage chooseAvatar(int playerID) throws IOException{
         BufferedImage image = null;
