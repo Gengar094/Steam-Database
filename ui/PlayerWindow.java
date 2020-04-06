@@ -315,58 +315,6 @@ public class PlayerWindow extends JFrame {
         this.setVisible(true);
     }
 
-    private ResultSet getPurchasedGamesInfo() {
-        //try {
-        return bank.getPurchasedGamesInfo(Integer.toString(this.playerID));
-        //} catch () {
-
-        //}
-    }
-
-    private ResultSet getAllGroupThePlayerHas() {
-        //try {
-            return bank.getAllGroupThePlayerHas(Integer.toString(this.playerID));
-        //} catch () {
-
-        //}
-    }
-
-    private ResultSet readCurrentGames() {
-        //try {
-        return bank.readGameInfo();
-        //} catch () {
-
-        //}
-    }
-
-    private PlayerGroupModel[] readCurrentGroup() {
-        //try {
-        return bank.getGroupInfo();
-        //} catch () {
-
-        //}
-    }
-
-    private ResultSet getPlayerInfo(){
-        return bank.getPlayerInfo(Integer.toString(this.playerID));
-    }
-
-    private ResultSet getInventory() {
-        //try {
-            return bank.getInventory(Integer.toString(this.playerID));
-            //} catch () {
-    
-            //}
-    }
-
-    private ResultSet searchReview(String appID) {
-        //try {
-        return bank.searchReview(appID);
-        //} catch () {
-
-        //}
-    }
-
     private void buyNewApp() {
         String appId = JOptionPane.showInputDialog(null, "Please enter the app ID you want to purchase");
         if (appId != null) {

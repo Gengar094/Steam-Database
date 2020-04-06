@@ -102,18 +102,22 @@ public class DatabaseConnectionHandler {
 			"FROM develop_product d, game g " +
 			"WHERE d.app_id = g.app_id AND LOWER(d.product_name) LIKE '%" + keyword + "%' ORDER BY d.product_name";
 			rs = stmt.executeQuery(query);
+		} catch (SQLException e) {
+			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+		}
+		return rs;
+	}
 
-			// while(rs.next()) {
-			// BranchModel model = new BranchModel(rs.getString("branch_addr"),
-			// rs.getString("branch_city"),
-			// rs.getInt("branch_id"),
-			// rs.getString("branch_name"),
-			// rs.getInt("branch_phone"));
-			// result.add(model);
-			// }
+	public ResultSet getPopularGame() {
+		ResultSet rs = null;
+		try {
+			Statement stmt = connection.createStatement();
+			String query = "SELECT d.app_id, d.product_name, g.genre" +
+					"FROM develop_product d, game g WHERE d.app_id = g.app_id AND NOT EXISTS ((SELECT pl.player_id FROM player pl)" +
+					"MINUS (SELECT pu.player_id FROM purchase pu WHERE d.app_id = pu.app_id))";
 
-//			rs.close();
-//			stmt.close();
+			rs = stmt.executeQuery(query);
+
 		} catch (SQLException e) {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 		}
@@ -130,17 +134,6 @@ public class DatabaseConnectionHandler {
 					+ "ORDER BY d.product_name";
 			rs = stmt.executeQuery(query);
 
-			// while(rs.next()) {
-			// BranchModel model = new BranchModel(rs.getString("branch_addr"),
-			// rs.getString("branch_city"),
-			// rs.getInt("branch_id"),
-			// rs.getString("branch_name"),
-			// rs.getInt("branch_phone"));
-			// result.add(model);
-			// }
-
-//			rs.close();
-//			stmt.close();
 		} catch (SQLException e) {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 		}
@@ -154,14 +147,6 @@ public class DatabaseConnectionHandler {
 			String query = "SELECT pg.gname, pg.num_mem, pg.tag FROM player_group pg, in_group ig WHERE pg.gname = ig.gname AND ig.player_id = " + playerID + " ORDER BY pg.gname";
 			rs = stmt.executeQuery(query);
 
-//			 while(rs.next()) {
-//			 	PlayerGroupModel model = new PlayerGroupModel(rs.getString("gname"),
-//			 	rs.getInt("num_mem"),
-//			 	rs.getString("tag"));
-//			 }
-
-//			rs.close();
-//			stmt.close();
 		} catch (SQLException e) {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 		}

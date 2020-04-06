@@ -91,6 +91,8 @@ public class Bank {
 
 	public ResultSet searchGame(String keyword) { return dbHandler.searchGame(keyword);}
 
+	public ResultSet getPopularGame() {return dbHandler.getPopularGame();}
+
 	public ResultSet getPurchasedGamesInfo(String playerID) {
 		return dbHandler.getPurchasedGamesInfo(playerID);
 	}
