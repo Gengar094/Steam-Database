@@ -344,7 +344,7 @@ public class DatabaseConnectionHandler {
 		ResultSet rs = null;
 		try {
 			Statement stmt = connection.createStatement();
-			String query = "SELECT oi.item_id, oi.item_type FROM own_item oi, type_tradability tt WHERE oi.player_id = " + playerID + " AND oi.item_type = tt.item_type";
+			String query = "SELECT oi.item_id, oi.item_type, tt.tradability FROM own_item oi, type_tradability tt WHERE oi.player_id = " + playerID + " AND oi.item_type = tt.item_type";
 			rs = stmt.executeQuery(query);
 
 			//rs.close();

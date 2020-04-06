@@ -170,11 +170,11 @@ public class PlayerWindow extends JFrame {
             }
         });
         this.writeReview.setMaximumSize(new Dimension(120, 40));
-        this.read = new JButton("Read a review");
+        this.read = new JButton("Search a review");
         this.read.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ReadAReview readAReview= new ReadAReview();
+                ReadAReview readAReview= new ReadAReview(bank);
                 readAReview.singleDialogInformation();
             }
         });
@@ -281,7 +281,6 @@ public class PlayerWindow extends JFrame {
         DefaultTableModel groupModel = (DefaultTableModel) this.groupTable.getModel();
         groupModel.setColumnIdentifiers(groupColumnNames);
         // add table to pane
-        System.out.println("fafaskf");
         try {
             while (rsg.next()) {
                 Object[] objects = new Object[3];
@@ -293,7 +292,6 @@ public class PlayerWindow extends JFrame {
         } catch (SQLException e) {
             System.out.println(e);
         }
-        System.out.println("rjrqkrn");
         this.groupTable.setModel(groupModel);
         this.groupPane = new JScrollPane(this.groupTable);
         this.groupTable.setFillsViewportHeight(true);

@@ -6,6 +6,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.*;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class InventoryWindow extends JFrame{
@@ -52,10 +53,24 @@ public class InventoryWindow extends JFrame{
 
         // ****************************** set right panel *******************//
         this.left = new JPanel();
-        Object[] columnNames = {"item_id", "player_id", "item type", "tradability"};
-        Object[][] data = {null, null, null, null, null}; // should be done by a query --
+
+        ResultSet rs = bank.getInventory(playerID);
+        String[] columnNames = {"item_id", "item type", "tradability"};
         JTable table = new JTable();
-        table.setModel(new DefaultTableModel(null, columnNames));
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        model.setColumnIdentifiers(columnNames);
+        try {
+            while (rs.next()) {
+                Object[] objects = new Object[3];
+                for (int i = 0; i < 3; i++) {
+                    objects[i] = rs.getObject(i+1);
+                }
+                model.addRow(objects);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        table.setModel(model);
         // add table to pane
         JScrollPane reviewPane = new JScrollPane(table);
         table.setFillsViewportHeight(true);
