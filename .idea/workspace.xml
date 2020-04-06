@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="95e60ba7-f934-4edc-b4f9-5135b51c7948" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/ModifyWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/ModifyWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Bank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/DatabaseConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/DatabaseConnectionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/PlayerWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/PlayerWindow.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -215,7 +216,8 @@
       <workItem from="1586141116881" duration="1128000" />
       <workItem from="1586142255001" duration="653000" />
       <workItem from="1586142912578" duration="85000" />
-      <workItem from="1586143000890" duration="891000" />
+      <workItem from="1586143000890" duration="1139000" />
+      <workItem from="1586144153273" duration="168000" />
     </task>
     <servers />
   </component>
