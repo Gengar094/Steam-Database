@@ -100,17 +100,17 @@ public class PlayerWindow extends JFrame {
         String email = "email";
         String city = "city";
         String country = "country";
-        // try {
-        // ResultSet arr = performPlayerQuery(playerID); // assume to be array
-        // while (arr.next()) {
-        // pname = arr.getString("pname");
-        // email = arr.getString("email");
-        // city = arr.getString("city");
-        // country = arr.getString("country");
-        // }
-        // } catch (Exception e) {
-        // System.out.println("Exception :" + e.getMessage());
-        // }
+        ResultSet set = bank.getPlayerInfo(Integer.toString(playerID));
+        try {
+            while (set.next()) {
+                pname = set.getString("pname");
+                email = set.getString("email");
+                city = set.getString("city");
+                country = set.getString("country");
+            }
+        } catch (SQLException e) {
+            System.out.println("should not happen here");
+        }
 
         this.pnameLabel = new JLabel(pname);
         this.idLabel = new JLabel(Integer.toString(playerID));
@@ -211,7 +211,7 @@ public class PlayerWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SearchApps searchApps = new SearchApps();
-                searchApps.searchPane();
+                searchApps.searchPane(bank);
             }
         });
         JPanel subPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -317,10 +317,6 @@ public class PlayerWindow extends JFrame {
         this.setVisible(true);
     }
 
-    private ResultSet performPlayerQuery() {
-        return null;
-    }
-
     private ResultSet getPurchasedGamesInfo() {
         //try {
         return bank.getPurchasedGamesInfo(Integer.toString(this.playerID));
@@ -363,6 +359,14 @@ public class PlayerWindow extends JFrame {
             //} catch () {
     
             //}
+    }
+
+    private ResultSet searchReview(String appID) {
+        //try {
+        return bank.searchReview(appID);
+        //} catch () {
+
+        //}
     }
 
     private void buyNewApp() {

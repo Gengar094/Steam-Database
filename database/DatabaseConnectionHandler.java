@@ -355,6 +355,20 @@ public class DatabaseConnectionHandler {
 		return rs;
 	}
 
+	public ResultSet searchReview(String appID){
+		ResultSet rs = null;
+		try {
+			Statement stmt = connection.createStatement();
+			String query = "SELECT r.review_id, d.product_name, r.player_id, r.recommendation, r.rdate FROM review_writereview r, develop_product d WHERE r.app_id = d.app_id AND r.app_id = " + appID;
+			rs = stmt.executeQuery(query);
+
+			//rs.close();
+			//stmt.close();
+		} catch (SQLException e) {
+			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+		}
+		return rs;
+	}
 
 	public void deleteBranch(int branchId) {
 		try {
