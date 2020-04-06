@@ -369,6 +369,14 @@ public class PlayerWindow extends JFrame {
         //}
     }
 
+    private void modifyProfile(String playerID, String field, String value){
+        //try {
+        bank.modifyProfile(playerID, field, value);
+        //} catch () {
+
+        //}
+    }
+
     private void buyNewApp() {
         String appId = JOptionPane.showInputDialog(null, "Please enter the app ID you want to purchase");
         if (appId != null) {
