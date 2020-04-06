@@ -34,6 +34,7 @@ public interface TerminalTransactionsDelegate {
 	public ResultSet getPlayerInfo(String playerID);
 	public ResultSet getInventory(String playerID);
 	public ResultSet searchReview(String appID);
+	public void modifyProfile(String playerID, String field, String value);
 	
 	public void terminalTransactionsFinished();
 }
